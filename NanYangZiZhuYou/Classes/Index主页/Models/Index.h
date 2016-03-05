@@ -25,6 +25,6 @@
 /** cell副标题 */
 @property (nonatomic, copy) NSString *subtitle;
 /** cell详细图片 */
-@property (nonatomic, copy) NSArray *showpicArray;
+//@property (nonatomic, copy) NSArray *showpicArray;
 
 @end

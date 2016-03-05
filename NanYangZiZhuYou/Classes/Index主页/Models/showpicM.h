@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface showpicM : NSObject
-/** cell图片 */
-@property (nonatomic, copy) NSString *showpic;
+/** cell详细图片 */
+@property (nonatomic, copy) NSArray *showpic;
+/** 吃美住娱_主 */
+@property (nonatomic, copy) NSString *content;
+/** draw */
+@property (nonatomic, copy) NSString *image;
+
+///** cell图片 */
+//@property (nonatomic, copy) NSString *showpic;
 @end

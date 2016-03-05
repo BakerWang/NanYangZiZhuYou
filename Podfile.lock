@@ -1,0 +1,18 @@
+PODS:
+  - BmobSDK (1.6.6)
+  - Masonry (0.6.4)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+
+DEPENDENCIES:
+  - BmobSDK
+  - Masonry
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  BmobSDK: c896d4ff3986f2b4fc8406fb2b801230f7419878
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+
+COCOAPODS: 0.39.0

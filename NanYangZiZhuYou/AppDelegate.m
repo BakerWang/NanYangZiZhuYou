@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
+#import <BmobSDK/Bmob.h>
 
 @interface AppDelegate ()
 
@@ -18,14 +19,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //bomb
+    [Bmob registerWithAppKey:kbmobAppKey];
+    
+    [self makeData];
     
     self.window.rootViewController = [TabBarViewController new];
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
-
+- (void)makeData{
+    //构造文件路径
+//    NSBundle *mainBundle = [NSBundle mainBundle];
+//    NSString *path = [[mainBundle bundlePath] stringByAppendingPathComponent:@""];
+    
+        
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

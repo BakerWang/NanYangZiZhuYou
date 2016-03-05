@@ -7,6 +7,8 @@
 //
 
 #import "CenterViewController.h"
+//#import "LBXScanViewController.h"
+#import "LBXScanView.h"
 
 @interface CenterViewController ()
 
@@ -16,22 +18,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:arc4random() %256/255.0f green:arc4random() %256/255.0f blue:arc4random() %256/255.0f alpha:arc4random() %256/255.0f];
+    self.title = @"扫描二维码";
+    self.view.backgroundColor = [UIColor yellowColor];
+    
+    
+    //设置扫码区域参数
+    LBXScanViewStyle *style = [[LBXScanViewStyle alloc]init];
+    style.centerUpOffset = 44;
+    style.photoframeAngleStyle = LBXScanViewPhotoframeAngleStyle_Outer;
+    style.photoframeLineW = 6;
+    style.photoframeAngleW = 24;
+    style.photoframeAngleH = 24;
+    
+    style.anmiationStyle = LBXScanViewAnimationStyle_LineMove;
+    
+    //qq里面的线条图片
+    UIImage *imgLine = [UIImage imageNamed:@"CodeScan.bundle/qrcode_scan_light_green"];
+    style.animationImage = imgLine;
+    
+//    LBXScanViewController *vc = [LBXScanViewController new];
+//    vc.style = style;
+//    vc.isQQSimulator = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

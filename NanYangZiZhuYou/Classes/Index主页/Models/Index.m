@@ -12,8 +12,8 @@
 //- (void)setValue:(id)value forUndefinedKey:(NSString *)key{
 //    
 //}
-- (NSDictionary *)objectClassInArray
-{
-    return @{@"showpicm" : [showpicM class]};
-}
+//- (NSDictionary *)objectClassInArray
+//{
+//    return @{@"showpicArray" : [showpicM class]};
+//}
 @end
