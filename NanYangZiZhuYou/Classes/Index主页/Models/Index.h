@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "showpicM.h"
-//<#
-//#>
 
 @interface Index : NSObject
 /** 头图片 */
@@ -26,5 +24,7 @@
 @property (nonatomic, copy) NSString *subtitle;
 /** cell详细图片 */
 //@property (nonatomic, copy) NSArray *showpicArray;
+/** <<#draw#>> */
+//@property (nonatomic, strong) showpicM *showpicm;
 
 @end

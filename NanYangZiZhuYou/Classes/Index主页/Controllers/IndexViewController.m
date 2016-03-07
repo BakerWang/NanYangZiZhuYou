@@ -13,6 +13,11 @@
 #import "MiddleScrollView.h"
 #import <BmobSDK/Bmob.h>
 
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
+#import "MJExtension.h"
+#import "TitleImageButton.h"
 @interface IndexViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 /** 轮播数据 */
@@ -21,31 +26,16 @@
 @property (nonatomic, retain) NSMutableArray *categroyList;
 /** 吃美住娱 */
 @property (nonatomic, retain) NSMutableArray *topicList;
+/** 吃美住娱 */
+@property (nonatomic, retain) NSMutableArray *topicListImage;
 /** cell */
 @property (nonatomic, retain) NSMutableArray *hotList;
-@property(nonatomic, retain) NSTimer *timer;
-/** <#draw#> */
-@property (nonatomic, strong) NSMutableArray *bannerListStr;
-/** <#draw#> */
-@property (nonatomic, strong) NSMutableArray *topicListStr;
+/** cell */
+@property (nonatomic, retain) NSMutableArray *hotListImage;
 
 @end
 
 @implementation IndexViewController
-- (NSMutableArray *)topicListStr
-{
-    if (!_topicListStr) {
-        self.topicListStr = [[NSMutableArray alloc] init];
-    }
-    return _topicListStr;
-}
-- (NSMutableArray *)bannerListStr
-{
-    if (!_bannerListStr) {
-        self.bannerListStr = [[NSMutableArray alloc] init];
-    }
-    return _bannerListStr;
-}
 - (NSMutableArray *)bannerList
 {
     if (!_bannerList) {
@@ -67,12 +57,26 @@
     }
     return _topicList;
 }
+- (NSMutableArray *)topicListImage
+{
+    if (!_topicListImage) {
+        self.topicListImage = [[NSMutableArray alloc] init];
+    }
+    return _topicListImage;
+}
 - (NSMutableArray *)hotList
 {
     if (!_hotList) {
         self.hotList = [[NSMutableArray alloc] init];
     }
     return _hotList;
+}
+- (NSMutableArray *)hotListImage
+{
+    if (!_hotListImage) {
+        self.hotListImage = [[NSMutableArray alloc] init];
+    }
+    return _hotListImage;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -82,47 +86,8 @@
     [self.view addSubview:self.tableView];
 #pragma mark    //数据请求
     [self requestModel];
-    
-//    BmobObject *user = [BmobObject objectWithClassName:@"content"];
-//    [user sub_saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
-//        fSLog(@"success");
-//    }];
-    
-    BmobACL *acl = [BmobACL ACL];
-    //设置所有人读权限为true
-    [acl setPublicReadAccess];
-    //设置所有人写权限为true
-    [acl setPublicWriteAccess];
-    
-    //轮播图数据
-    NSArray *idArray = @[@"wVmOXXX2",@"0Bmo111T",@"qtXhCCCd",@"LflO222J",@"gOZXbbbO"];
-    NSString *key = @"showPic";
-    [self getqueryWithClassName:@"content" idArray:idArray key:key returnMArray:self.bannerListStr];
-    //四个按钮
-    NSArray *siArray = @[@"MTlmIIIC",@"2XWj1117",@"Z7JlDDDK",@"PQVq2223"];
-    NSString *siKey = @"content";
-    [self getqueryWithClassName:@"topiclist" idArray:siArray key:siKey returnMArray:self.topicListStr];
-    
-    
 }
-- (void)getqueryWithClassName:(NSString *)name idArray:(NSArray *)idarray key:(NSString *)key returnMArray:(NSMutableArray *)returnMArray{
-    BmobQuery *bquery = [BmobQuery queryWithClassName:name];
-    for (NSString *Id in idarray) {
-        [bquery getObjectInBackgroundWithId:Id block:^(BmobObject *object, NSError *error) {
-            if (object) {
-                    NSString *str = [object objectForKey:key];
-                    [returnMArray addObject:str];
-//                fSLog(@"%@",str);
-//                fSLog(@"%lu",returnMArray.count);
-            }else{
-                if (error) {
-                    fSLog(@"%@",error);
-                    
-                }
-            }
-        }];
-    }
-}
+
 #pragma mark    //数据请求
 - (void)requestModel{
     NSString *URLString = kIndex;
@@ -152,12 +117,22 @@
         for (int i = 0; i < topicList_Plus.count; i++) {
             Index *index = topicList_Plus[i];
             [self.topicList addObject:index];
+            showpicM *showpicm = topicList_Plus[i];
+            [self.topicListImage addObject:showpicm];
                 }
+        
+        
         //cell
         NSArray *hotList_Plus = [Index objectArrayWithKeyValuesArray:indexList[@"hotList"]];
         for (int i = 0; i < hotList_Plus.count; i++) {
             Index *index = hotList_Plus[i];
             [self.hotList addObject:index];
+            showpicM *showpicm = hotList_Plus[i];
+            [self.hotListImage addObject:showpicm];
+//            if (showpicm) {
+//                fSLog(@"%@",showpicm.showpic[0][@"image"]);
+//            }
+            
         }
         
         
@@ -172,13 +147,13 @@
 - (void)loadingCustomView{
     UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.6)];
     self.tableView.tableHeaderView = tableViewHeaderView;
-    
+#pragma mark    //轮播图
     HeadScrollView *headScrollView = [[HeadScrollView alloc] initWithFrame:tableViewHeaderView.frame andbannerList:self.bannerList];
-    headScrollView.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 5, SCREEN_HEIGHT * 0.2);
+    headScrollView.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 5, SCREEN_HEIGHT * 0.2 - 2);
     [tableViewHeaderView addSubview:headScrollView.scrollView];
     headScrollView.pageControl.numberOfPages = 5;
     [tableViewHeaderView addSubview:headScrollView.pageControl];
-  
+#pragma mark    //侧滑图
     MiddleScrollView *middleScrollView = [[MiddleScrollView alloc] initWithFrame:tableViewHeaderView.frame andcategroyList:self.categroyList];
     middleScrollView.scrollView_Puls.contentSize = CGSizeMake(SCREEN_WIDTH * 2, SCREEN_HEIGHT * 0.2 - 2);
     [tableViewHeaderView addSubview:middleScrollView.scrollView_Puls];
@@ -187,27 +162,24 @@
 #pragma mark    //4
     for (int i = 0; i < 2; i++) {
         for (int j = 0; j < 2; j++) {
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.backgroundColor = [UIColor colorWithRed:arc4random() %256/255.0f green:arc4random() %256/255.0f blue:arc4random() %256/255.0f alpha:arc4random() %256/255.0f];
+            UIButton *btn = [[UIButton alloc] init];
+            btn.backgroundColor = [UIColor colorWithRed:0.177 green:0.803 blue:0.020 alpha:1.000];
             if (j == 0) {
-                btn.frame = CGRectMake(i * SCREEN_WIDTH / 2,SCREEN_HEIGHT * 0.4 + 2, SCREEN_WIDTH / 4, SCREEN_HEIGHT * 0.1 - 1);
-//                showpicM *showpicm = self.topicList[i];
+                btn.frame = CGRectMake(i * SCREEN_WIDTH / 2,SCREEN_HEIGHT * 0.4 + 2, SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.1 - 1);
                 Index *index = self.topicList[i];
+                showpicM *showpicm = self.topicListImage[i];
                 [btn setTitle:index.title forState:UIControlStateNormal];
-//                fSLog(@"%@",showpicm.image);
-//                [btn setTitle:self.topicListStr[i] forState:UIControlStateNormal];
-//                NSURL *URL = [NSURL URLWithString:showpicm.image];
-//                [btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
+                NSURL *URL = [NSURL URLWithString:showpicm.showpic[0][@"image"]];
+                [btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
             } else {
-                btn.frame = CGRectMake(i * SCREEN_WIDTH / 2,SCREEN_HEIGHT * 0.5, SCREEN_WIDTH / 4, SCREEN_HEIGHT * 0.1 - 2);
-//                showpicM *showpicm = self.topicList[i + 2];
+                btn.frame = CGRectMake(i * SCREEN_WIDTH / 2,SCREEN_HEIGHT * 0.5, SCREEN_WIDTH / 2, SCREEN_HEIGHT * 0.1 - 2);
                 Index *index = self.topicList[i + 2];
+                showpicM *showpicm = self.topicListImage[i + 2];
                 [btn setTitle:index.title forState:UIControlStateNormal];
-//                fSLog(@"%@",showpicm.image);
-//                [btn setTitle:self.topicListStr[i + 2] forState:UIControlStateNormal];
-//                NSURL *URL = [NSURL URLWithString:showpicm.image];
-//                [btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
+                NSURL *URL = [NSURL URLWithString:showpicm.showpic[0][@"image"]];
+                [btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
             }
+//            [btn setClipsToBounds:YES];
             [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [tableViewHeaderView addSubview:btn];
         }
@@ -225,7 +197,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellidentifier];
     }
     Index *index = self.hotList[indexPath.row];
-//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:index.showpic] placeholderImage:nil];
+//    showpicM *showpicm = self.hotListImage[indexPath.row];
+//    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:showpicm.showpic[0][@"image"]] placeholderImage:nil];
     cell.textLabel.text = index.title;
     cell.detailTextLabel.text = index.subtitle;
     return cell;

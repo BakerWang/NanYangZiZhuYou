@@ -2,6 +2,9 @@
 
 #import "HeadScrollView.h"
 #import "Index.h"
+
+
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface HeadScrollView()<UIScrollViewDelegate>
 @property(nonatomic, retain) NSTimer *timer;
 
@@ -23,7 +26,12 @@
         self.scrollView.delegate = self;
         //整屏滑动
         self.scrollView.pagingEnabled = YES;
+        ////是否显示水平方向的滚动条
         self.scrollView.showsHorizontalScrollIndicator = NO;
+        //是否反弹左右
+        self.scrollView.alwaysBounceHorizontal = NO;
+        //上下是否可以反弹
+        self.scrollView.alwaysBounceVertical = NO;
     }
     return _scrollView;
 }
@@ -39,12 +47,12 @@
     return _pageControl;
 }
 - (void)loadingCustomView{
-    
-#pragma mark 数组图片
     for (int i = 0; i < self.bannerList.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.2 - 2)];
         Index *index = self.bannerList[i];
         [imageView sd_setImageWithURL:[NSURL URLWithString:index.showpic] placeholderImage:nil];
+//        fSLog(@"%@",self.bannerList[i]);
+//        [imageView sd_setImageWithURL:[NSURL URLWithString:self.bannerList[i]] placeholderImage:nil];
         [self.scrollView addSubview:imageView];
     }
     //定时器
@@ -64,9 +72,7 @@
     [self.scrollView setContentOffset:offset animated:YES];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    CGPoint offSet = self.scrollView.contentOffset;
-    CGFloat width = self.scrollView.frame.size.width;
-    self.pageControl.currentPage = offSet.x / width;
+    self.pageControl.currentPage = self.scrollView.contentOffset.x / SCREEN_WIDTH;
 }
 //当用户拖拽scrollView的时候，移除定时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{

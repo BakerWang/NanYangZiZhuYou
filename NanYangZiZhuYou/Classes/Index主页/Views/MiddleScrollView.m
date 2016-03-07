@@ -2,6 +2,9 @@
 
 #import "middleScrollView.h"
 #import "Index.h"
+
+
+#import <SDWebImage/UIButton+WebCache.h>
 @interface MiddleScrollView()<UIScrollViewDelegate>
 
 @end
@@ -31,9 +34,11 @@
                 NSURL *URL = [NSURL URLWithString:index.icon];
                 [btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
             }
+            
             //            btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, SCREEN_WIDTH * 0.1 * 0.2, 0);
             //            btn.titleEdgeInsets = UIEdgeInsetsMake(0, SCREEN_WIDTH * 0.1 * 0.8, 0, 0);
             [btn setClipsToBounds:YES];
+            btn.imageView.x = CGRectGetMaxX(btn.titleLabel.frame) + 10;
             [self.scrollView_Puls addSubview:btn];
         }
     }
@@ -74,7 +79,12 @@
         self.scrollView_Puls.delegate = self;
         //整屏滑动
         self.scrollView_Puls.pagingEnabled = YES;
+        ////是否显示水平方向的滚动条
         self.scrollView_Puls.showsHorizontalScrollIndicator = NO;
+        //是否反弹左右
+        self.scrollView_Puls.alwaysBounceHorizontal = NO;
+        //上下是否可以反弹
+        self.scrollView_Puls.alwaysBounceVertical = NO;
     }
     return _scrollView_Puls;
 }

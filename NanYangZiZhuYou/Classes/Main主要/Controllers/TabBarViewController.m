@@ -85,7 +85,7 @@
     
     // 设置文字的样式
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = HWColor(123, 123, 123);
+    textAttrs[NSForegroundColorAttributeName] = HWColor(123, 123, 123 ,1.0);
     NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
     selectTextAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
