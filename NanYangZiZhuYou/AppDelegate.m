@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TabBarViewController.h"
 #import <BmobSDK/Bmob.h>
+#import "MineViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,7 +22,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     //bomb
     [Bmob registerWithAppKey:kbmobAppKey];
-    
+
     self.window.rootViewController = [TabBarViewController new];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

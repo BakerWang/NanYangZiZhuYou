@@ -31,10 +31,10 @@
     [self addChildVc:home title:@"主页" image:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
     
     OrderViewController *messageCenter = [[OrderViewController alloc] init];
-    [self addChildVc:messageCenter title:@"订单" image:@"botm_nav_order" selectedImage:@"botm_nav_order"];
+    [self addChildVc:messageCenter title:@"蚂蜂窝" image:@"botm_nav_order" selectedImage:@"botm_nav_order"];
     
     FavoriteViewController *discover = [[FavoriteViewController alloc] init];
-    [self addChildVc:discover title:@"收藏" image:@"btmbar_home_favor_normal" selectedImage:@"btmbar_home_favor_press"];
+    [self addChildVc:discover title:@"欣欣" image:@"btmbar_home_favor_normal" selectedImage:@"btmbar_home_favor_press"];
     
     MineViewController *profile = [[MineViewController alloc] init];
     [self addChildVc:profile title:@"我的" image:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];

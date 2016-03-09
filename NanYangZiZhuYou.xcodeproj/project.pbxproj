@@ -18,9 +18,6 @@
 		7A80CCCB1C8B033300209C81 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A80CCCA1C8B033300209C81 /* Foundation+Log.m */; };
 		7A80CCCD1C8B19FC00209C81 /* 订单.html in Resources */ = {isa = PBXBuildFile; fileRef = 7A80CCCC1C8B19FC00209C81 /* 订单.html */; };
 		7A821F351C8D93EF005EEA8F /* TitleImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F341C8D93EF005EEA8F /* TitleImageButton.m */; };
-		7A821F5C1C8DAD57005EEA8F /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F581C8DAD57005EEA8F /* MBProgressHUD+MJ.m */; };
-		7A821F5D1C8DAD57005EEA8F /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A821F591C8DAD57005EEA8F /* MBProgressHUD.bundle */; };
-		7A821F5E1C8DAD57005EEA8F /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F5B1C8DAD57005EEA8F /* MBProgressHUD.m */; };
 		7A821F771C8DB631005EEA8F /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F611C8DB631005EEA8F /* MJArgument.m */; };
 		7A821F781C8DB631005EEA8F /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F631C8DB631005EEA8F /* MJConst.m */; };
 		7A821F791C8DB631005EEA8F /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F661C8DB631005EEA8F /* MJFoundation.m */; };
@@ -32,6 +29,12 @@
 		7A821F7F1C8DB631005EEA8F /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F721C8DB631005EEA8F /* NSObject+MJCoding.m */; };
 		7A821F801C8DB631005EEA8F /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F741C8DB631005EEA8F /* NSObject+MJKeyValue.m */; };
 		7A821F811C8DB631005EEA8F /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F761C8DB631005EEA8F /* NSObject+MJMember.m */; };
+		7A821F861C8E9D32005EEA8F /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7A821F831C8E9D32005EEA8F /* ProgressHUD.bundle */; };
+		7A821F871C8E9D32005EEA8F /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F851C8E9D32005EEA8F /* ProgressHUD.m */; };
+		7A821F941C8ED3D5005EEA8F /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A821F931C8ED3D5005EEA8F /* AlertViewController.m */; };
+		7A8222831C8F0B49005EEA8F /* LZLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8222821C8F0B49005EEA8F /* LZLoginViewController.m */; };
+		7A8222851C8F0BD6005EEA8F /* LZLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A8222841C8F0BD6005EEA8F /* LZLogin.storyboard */; };
+		7A8222881C8F13BD005EEA8F /* LZRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8222871C8F13BD005EEA8F /* LZRegisterViewController.m */; };
 		7A8780701C8964EC00A3DD9F /* HeadScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A87806F1C8964EC00A3DD9F /* HeadScrollView.m */; };
 		7A8780731C896F3100A3DD9F /* MiddleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8780721C896F3100A3DD9F /* MiddleScrollView.m */; };
 		7A9A0D431C85C50100ABD053 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A9A0D421C85C50100ABD053 /* CenterViewController.m */; };
@@ -68,11 +71,6 @@
 		7A80CCCC1C8B19FC00209C81 /* 订单.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "订单.html"; sourceTree = "<group>"; };
 		7A821F331C8D93EF005EEA8F /* TitleImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleImageButton.h; sourceTree = "<group>"; };
 		7A821F341C8D93EF005EEA8F /* TitleImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleImageButton.m; sourceTree = "<group>"; };
-		7A821F571C8DAD57005EEA8F /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
-		7A821F581C8DAD57005EEA8F /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
-		7A821F591C8DAD57005EEA8F /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		7A821F5A1C8DAD57005EEA8F /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		7A821F5B1C8DAD57005EEA8F /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		7A821F601C8DB631005EEA8F /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		7A821F611C8DB631005EEA8F /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		7A821F621C8DB631005EEA8F /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
@@ -96,6 +94,16 @@
 		7A821F741C8DB631005EEA8F /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		7A821F751C8DB631005EEA8F /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
 		7A821F761C8DB631005EEA8F /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
+		7A821F831C8E9D32005EEA8F /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		7A821F841C8E9D32005EEA8F /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		7A821F851C8E9D32005EEA8F /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
+		7A821F921C8ED3D5005EEA8F /* AlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
+		7A821F931C8ED3D5005EEA8F /* AlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
+		7A8222811C8F0B49005EEA8F /* LZLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLoginViewController.h; sourceTree = "<group>"; };
+		7A8222821C8F0B49005EEA8F /* LZLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLoginViewController.m; sourceTree = "<group>"; };
+		7A8222841C8F0BD6005EEA8F /* LZLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LZLogin.storyboard; sourceTree = "<group>"; };
+		7A8222861C8F13BD005EEA8F /* LZRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZRegisterViewController.h; sourceTree = "<group>"; };
+		7A8222871C8F13BD005EEA8F /* LZRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZRegisterViewController.m; sourceTree = "<group>"; };
 		7A87806E1C8964EC00A3DD9F /* HeadScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadScrollView.h; sourceTree = "<group>"; };
 		7A87806F1C8964EC00A3DD9F /* HeadScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadScrollView.m; sourceTree = "<group>"; };
 		7A8780711C896F3100A3DD9F /* MiddleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiddleScrollView.h; sourceTree = "<group>"; };
@@ -284,6 +292,10 @@
 			children = (
 				7A55001F1C71D4B500070C9B /* MineViewController.h */,
 				7A5500201C71D4B500070C9B /* MineViewController.m */,
+				7A8222811C8F0B49005EEA8F /* LZLoginViewController.h */,
+				7A8222821C8F0B49005EEA8F /* LZLoginViewController.m */,
+				7A8222861C8F13BD005EEA8F /* LZRegisterViewController.h */,
+				7A8222871C8F13BD005EEA8F /* LZRegisterViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +310,7 @@
 		7A5500221C71D4B500070C9B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A8222841C8F0BD6005EEA8F /* LZLogin.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -342,18 +355,6 @@
 			path = "Temp(临时)";
 			sourceTree = "<group>";
 		};
-		7A821F561C8DAD57005EEA8F /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				7A821F571C8DAD57005EEA8F /* MBProgressHUD+MJ.h */,
-				7A821F581C8DAD57005EEA8F /* MBProgressHUD+MJ.m */,
-				7A821F591C8DAD57005EEA8F /* MBProgressHUD.bundle */,
-				7A821F5A1C8DAD57005EEA8F /* MBProgressHUD.h */,
-				7A821F5B1C8DAD57005EEA8F /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		7A821F5F1C8DB631005EEA8F /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -384,12 +385,22 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
+		7A821F821C8E9D32005EEA8F /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				7A821F831C8E9D32005EEA8F /* ProgressHUD.bundle */,
+				7A821F841C8E9D32005EEA8F /* ProgressHUD.h */,
+				7A821F851C8E9D32005EEA8F /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		7AA5A3A11C777922009DBC5D /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				7A51BF951C87DD0D00E79516 /* Header.h */,
 				7AA5A3C01C777923009DBC5D /* PrefixHeader.pch */,
-				7A821F561C8DAD57005EEA8F /* MBProgressHUD */,
+				7A821F821C8E9D32005EEA8F /* ProgressHUD */,
 				7A821F5F1C8DB631005EEA8F /* MJExtension */,
 				7AA5A3A21C777922009DBC5D /* Category */,
 			);
@@ -404,6 +415,8 @@
 				7AA5A3A51C777922009DBC5D /* UIBarButtonItem+Extension.m */,
 				7AA5A3A61C777922009DBC5D /* UIView+Extension.h */,
 				7AA5A3A71C777922009DBC5D /* UIView+Extension.m */,
+				7A821F921C8ED3D5005EEA8F /* AlertViewController.h */,
+				7A821F931C8ED3D5005EEA8F /* AlertViewController.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -487,7 +500,7 @@
 		7AE3536F1C65C2D8008DA848 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = "";
+				CLASSPREFIX = LZ;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "李志鹏";
 				TargetAttributes = {
@@ -520,9 +533,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A821F861C8E9D32005EEA8F /* ProgressHUD.bundle in Resources */,
 				7AE353811C65C2D8008DA848 /* Assets.xcassets in Resources */,
-				7A821F5D1C8DAD57005EEA8F /* MBProgressHUD.bundle in Resources */,
 				7A80CCCD1C8B19FC00209C81 /* 订单.html in Resources */,
+				7A8222851C8F0BD6005EEA8F /* LZLogin.storyboard in Resources */,
 				7AE353841C65C2D8008DA848 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -582,13 +596,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A821F5C1C8DAD57005EEA8F /* MBProgressHUD+MJ.m in Sources */,
+				7A8222831C8F0B49005EEA8F /* LZLoginViewController.m in Sources */,
 				7A821F811C8DB631005EEA8F /* NSObject+MJMember.m in Sources */,
 				7A8780701C8964EC00A3DD9F /* HeadScrollView.m in Sources */,
 				7A55002F1C71D4B500070C9B /* TabBarViewController.m in Sources */,
 				7A55002B1C71D4B500070C9B /* FavoriteViewController.m in Sources */,
 				7A821F771C8DB631005EEA8F /* MJArgument.m in Sources */,
-				7A821F5E1C8DAD57005EEA8F /* MBProgressHUD.m in Sources */,
 				7A785DE31C71DC9700203CB9 /* HWTabBar.m in Sources */,
 				7A821F7E1C8DB631005EEA8F /* MJTypeEncoding.m in Sources */,
 				7A80CCCB1C8B033300209C81 /* Foundation+Log.m in Sources */,
@@ -596,10 +609,12 @@
 				7A821F791C8DB631005EEA8F /* MJFoundation.m in Sources */,
 				7A821F7D1C8DB631005EEA8F /* MJType.m in Sources */,
 				7AA5A3C31C777923009DBC5D /* UIView+Extension.m in Sources */,
+				7A821F871C8E9D32005EEA8F /* ProgressHUD.m in Sources */,
 				7A821F7C1C8DB631005EEA8F /* MJMethod.m in Sources */,
 				7AE3537F1C65C2D8008DA848 /* AppDelegate.m in Sources */,
 				7A821F7A1C8DB631005EEA8F /* MJIvar.m in Sources */,
 				7A9A0D431C85C50100ABD053 /* CenterViewController.m in Sources */,
+				7A821F941C8ED3D5005EEA8F /* AlertViewController.m in Sources */,
 				7A5500301C71D4B500070C9B /* MineViewController.m in Sources */,
 				7A5500321C71D4B500070C9B /* OrderViewController.m in Sources */,
 				7A51BF931C87C40700E79516 /* showpicM.m in Sources */,
@@ -611,6 +626,7 @@
 				7A821F781C8DB631005EEA8F /* MJConst.m in Sources */,
 				7A821F351C8D93EF005EEA8F /* TitleImageButton.m in Sources */,
 				7AA5A3C21C777923009DBC5D /* UIBarButtonItem+Extension.m in Sources */,
+				7A8222881C8F13BD005EEA8F /* LZRegisterViewController.m in Sources */,
 				7A821F801C8DB631005EEA8F /* NSObject+MJKeyValue.m in Sources */,
 				7A785DC91C71D96000203CB9 /* HWNavigationController.m in Sources */,
 			);

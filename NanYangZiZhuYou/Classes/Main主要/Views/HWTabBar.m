@@ -23,9 +23,9 @@
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
         [plusBtn setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
         //tabbar_compose_icon_add
-        [plusBtn setImage:[UIImage imageNamed:@"navigationbar_pop"] forState:UIControlStateNormal];
+        [plusBtn setImage:[UIImage imageNamed:@"tabbar_discover"] forState:UIControlStateNormal];
         //tabbar_compose_icon_add_highlighted
-        [plusBtn setImage:[UIImage imageNamed:@"navigationbar_pop_highlighted"] forState:UIControlStateHighlighted];
+        [plusBtn setImage:[UIImage imageNamed:@"tabbar_discover_selected"] forState:UIControlStateHighlighted];
         plusBtn.size = plusBtn.currentBackgroundImage.size;
         [plusBtn addTarget:self action:@selector(plusClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:plusBtn];

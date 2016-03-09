@@ -30,7 +30,7 @@
     
     // 2.加载网页
     //http://www.tudou.com/programs/view/N0Sl6n5tufU#
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.tudou.com/programs/view/N0Sl6n5tufU#"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.cncn.com/city/nanyang"]];
     [webView loadRequest:request];
     // 3.创建
 //    UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];

@@ -10,4 +10,32 @@
 
 @interface CenterViewController : UIViewController
 
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
