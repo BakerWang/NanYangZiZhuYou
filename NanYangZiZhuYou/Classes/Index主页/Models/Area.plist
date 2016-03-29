@@ -1,0 +1,124 @@
+{
+areaList =     (
+{
+agentid = 1;
+cid = "-1";
+cname = "\U5168\U57ce";
+"is_need_agent" = 1;
+},
+{
+agentid = 0;
+cid = 11772;
+cname = "\U897f\U5ce1\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11771;
+cname = "\U793e\U65d7\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11770;
+cname = "\U65b0\U91ce\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11769;
+cname = "\U5185\U4e61\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11768;
+cname = "\U5357\U53ec\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11767;
+cname = "\U5510\U6cb3\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11766;
+cname = "\U9547\U5e73\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11765;
+cname = "\U6dc5\U5ddd\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11764;
+cname = "\U65b9\U57ce\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11763;
+cname = "\U6850\U67cf\U53bf";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11762;
+cname = "\U9093\U5dde\U5e02";
+"is_need_agent" = 1;
+twoAreas =             (
+);
+},
+{
+agentid = 0;
+cid = 11761;
+cname = "\U5357\U9633\U5e02";
+"is_need_agent" = 1;
+twoAreas =             (
+{
+agentid = 255;
+areaid = 11761;
+cityid = 11760;
+id = 510;
+name = "\U65b0\U534e\U57ce\U5e02\U5e7f\U573a";
+provinceid = 11670;
+status = 1;
+},
+{
+agentid = 255;
+areaid = 11761;
+cityid = 11760;
+id = 511;
+name = "\U94f6\U57fa\U5546\U8d38";
+provinceid = 11670;
+status = 1;
+}
+);
+}
+);
+}

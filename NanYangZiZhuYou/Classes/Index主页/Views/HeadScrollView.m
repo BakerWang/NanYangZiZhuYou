@@ -12,12 +12,13 @@
 @implementation HeadScrollView
 
 - (instancetype)initWithFrame:(CGRect)frame andbannerList:(NSMutableArray *)bannerList{
-    if ([super initWithFrame:frame ]) {
+    if ([super initWithFrame:frame]) {
         self.bannerList = bannerList;
         [self loadingCustomView];
     }
     return self;
 }
+
 - (UIScrollView *)scrollView
 {
     if (!_scrollView) {
@@ -32,6 +33,8 @@
         self.scrollView.alwaysBounceHorizontal = NO;
         //上下是否可以反弹
         self.scrollView.alwaysBounceVertical = NO;
+        //边界不滑动
+//        self.scrollView.bounces = NO;
     }
     return _scrollView;
 }
@@ -49,16 +52,19 @@
 - (void)loadingCustomView{
     for (int i = 0; i < self.bannerList.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.2 - 2)];
+//        imageView.userInteractionEnabled = YES;
         Index *index = self.bannerList[i];
         [imageView sd_setImageWithURL:[NSURL URLWithString:index.showpic] placeholderImage:nil];
-//        fSLog(@"%@",self.bannerList[i]);
-//        [imageView sd_setImageWithURL:[NSURL URLWithString:self.bannerList[i]] placeholderImage:nil];
         [self.scrollView addSubview:imageView];
+        UIButton *touchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        touchBtn.frame = imageView.frame;
+        touchBtn.tag = 90 + i;
+        [self.scrollView addSubview:touchBtn];
     }
     //定时器
     self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(scrollViewAction) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-
+    [_pageControl addTarget:self action:@selector(pateSelectAction:) forControlEvents:UIControlEventValueChanged];
     
 }
 - (void)scrollViewAction{
@@ -74,6 +80,17 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     self.pageControl.currentPage = self.scrollView.contentOffset.x / SCREEN_WIDTH;
 }
+#pragma mark    //当前位置
+- (void)pateSelectAction:(UIPageControl *)pageControl{
+    //滚动的当前页面
+    self.scrollView.contentOffset = CGPointMake(pageControl.currentPage * self.scrollView.frame.size.width, 0);
+}
+#pragma mark    //停止时的位置
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    //当前页面的位置宽度 除以 单个宽度
+    self.pageControl.currentPage = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
+}
+
 //当用户拖拽scrollView的时候，移除定时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self.timer invalidate], self.timer = nil;

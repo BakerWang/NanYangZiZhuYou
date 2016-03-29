@@ -17,7 +17,7 @@
 #import "HWTabBar.h"
 #import "CenterViewController.h"
 
-@interface TabBarViewController ()
+@interface TabBarViewController ()<HWTabDelegate>
 
 @end
 
@@ -42,7 +42,7 @@
     // 2.更换系统自带的tabbar
 //        self.tabBar = [[HWTabBar alloc] init];
     HWTabBar *tabBar = [[HWTabBar alloc] init];
-//    tabBar.delegate = self;
+    tabBar.tabBardelegate = self;
     [self setValue:tabBar forKeyPath:@"tabBar"];
     //    self.tabBar = tabBar;
     

@@ -5,7 +5,10 @@
 
 
 #import <SDWebImage/UIButton+WebCache.h>
+#import "LZPVerticalButton.h"
 @interface MiddleScrollView()<UIScrollViewDelegate>
+/** <button> */
+@property (nonatomic, strong) LZPVerticalButton *btn;
 
 @end
 @implementation MiddleScrollView
@@ -18,30 +21,34 @@
 }
 - (void)loadingCustomView{
     //按钮16
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 2; j++) {
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [btn setBackgroundColor:[UIColor yellowColor]];
-            btn.frame = CGRectMake(i * SCREEN_WIDTH / 4,j * SCREEN_HEIGHT * 0.1, SCREEN_WIDTH / 4, SCREEN_HEIGHT * 0.1 - 2);
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    for (int j = 0; j < 2; j++) {
+        for (int i = 0; i < 8; i++) {
+            self.btn = [[LZPVerticalButton alloc] init];
+            [self.btn setBackgroundColor:[UIColor yellowColor]];
+            self.btn.frame = CGRectMake(i * SCREEN_WIDTH / 4,j * SCREEN_HEIGHT * 0.1, SCREEN_WIDTH / 4, SCREEN_HEIGHT * 0.1 - 2);
+            [self.btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             if (j == 0) {
+                self.btn.tag = 100 + i;
                 Index *index = self.categroyList[i];
-                [btn setTitle:index.categroyname forState:UIControlStateNormal];
-                [btn sd_setImageWithURL:[NSURL URLWithString:index.icon] forState:UIControlStateNormal placeholderImage:nil];
+                [self.btn setTitle:index.categroyname forState:UIControlStateNormal];
+                [self.btn sd_setImageWithURL:[NSURL URLWithString:index.icon] forState:UIControlStateNormal placeholderImage:nil];
             } else {
+                self.btn.tag = i + 108;
                 Index *index = self.categroyList[i + 8];
-                [btn setTitle:index.categroyname forState:UIControlStateNormal];
+                [self.btn setTitle:index.categroyname forState:UIControlStateNormal];
                 NSURL *URL = [NSURL URLWithString:index.icon];
-                [btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
+                [self.btn sd_setImageWithURL:URL forState:UIControlStateNormal placeholderImage:nil];
             }
+
+            //            self.btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, SCREEN_WIDTH * 0.1 * 0.2, 0);
+            //            self.btn.titleEdgeInsets = UIEdgeInsetsMake(0, SCREEN_WIDTH * 0.1 * 0.8, 0, 0);
+            [self.btn setClipsToBounds:YES];
+//            self.btn.imageView.x = CGRectGetMaxX(self.btn.titleLabel.frame) + 10;
+            [self.scrollView_Puls addSubview:self.btn];
             
-            //            btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, SCREEN_WIDTH * 0.1 * 0.2, 0);
-            //            btn.titleEdgeInsets = UIEdgeInsetsMake(0, SCREEN_WIDTH * 0.1 * 0.8, 0, 0);
-            [btn setClipsToBounds:YES];
-            btn.imageView.x = CGRectGetMaxX(btn.titleLabel.frame) + 10;
-            [self.scrollView_Puls addSubview:btn];
         }
     }
+
 #pragma mark    //16
     /** //    for (int i = 0; i < 8; i++) {
      //        for (int j = 1; j < 3; j++) {
@@ -58,10 +65,9 @@
      //            [self.scrollView_Puls addSubview:imageView];
      //        }
      //    } */
-    
-
-    
 }
+
+
 #pragma mark    //Plus
 #pragma mark    //当前位置
 - (void)pateSelectAction:(UIPageControl *)pageControl{
@@ -85,6 +91,8 @@
         self.scrollView_Puls.alwaysBounceHorizontal = NO;
         //上下是否可以反弹
         self.scrollView_Puls.alwaysBounceVertical = NO;
+        //边界不滑动
+        self.scrollView_Puls.bounces = NO;
     }
     return _scrollView_Puls;
 }

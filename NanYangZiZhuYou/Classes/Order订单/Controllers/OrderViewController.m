@@ -22,10 +22,11 @@
     webView.frame = self.view.bounds;
     webView.delegate = self;
     [self.view addSubview:webView];
-    // 隐藏scrollView
-//    webView.scrollView.hidden = YES;
     // 伸缩页面至填充整个webView
     webView.scalesPageToFit = YES;
+    // 隐藏scrollView
+    //    webView.scrollView.hidden = YES;
+    [ProgressHUD show:@"加载中..."];
     
     // 2.加载网页
     //http://m.mafengwo.cn/mdd/17396
@@ -41,6 +42,7 @@
 }
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [ProgressHUD dismiss];
     //列表
 //    NSMutableString *js1 = [NSMutableString string];
 //    [js1 appendString:@"var ul = document.getElementsByTagName('ul')[0];"];
@@ -59,6 +61,12 @@
 //        // 删除圈圈
 //        [self.loadingView removeFromSuperview];
 //    });
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [ProgressHUD dismiss];
+    
+    
 }
 @end
 

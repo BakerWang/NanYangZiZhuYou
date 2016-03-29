@@ -10,6 +10,9 @@
 #import "TabBarViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "MineViewController.h"
+//#import "WeiboSDK.h"
+
+#import <SMS_SDK/SMSSDK.h>
 
 @interface AppDelegate ()
 
@@ -22,7 +25,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     //bomb
     [Bmob registerWithAppKey:kbmobAppKey];
-
+    //注册需要短信验证的应用
+    [SMSSDK registerApp:@"10e68c77c70b0" withSecret:@"d2eff47f1ccb5ef026b735e71ffd73fc"];
+    //weibo
+//    [WeiboSDK enableDebugMode:YES];
+//    [WeiboSDK registerApp:kAppKey];
+    
     self.window.rootViewController = [TabBarViewController new];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

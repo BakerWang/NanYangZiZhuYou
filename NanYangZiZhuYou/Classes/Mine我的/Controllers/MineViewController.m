@@ -8,23 +8,45 @@
 
 #import "MineViewController.h"
 #import <MessageUI/MessageUI.h>
-#import <SDWebImage/SDImageCache.h>
-#import "ProgressHUD.h"
-#import "HWNavigationController.h"
 #import <BmobSDK/Bmob.h>
+
+#import <AFNetworking/AFHTTPSessionManager.h>
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
+#import <UIImageView+WebCache.h>
+
+#import "HWNavigationController.h"
+#import "HWAccountTool.h"
+#import "LZ_HeadView.h"
+#import "LZ_Mine_Head_DetailViewController.h"
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *titleArray;
-@property (nonatomic, strong) NSArray *imageArray;
-@property (nonatomic, strong) UIButton *headImageButton;
-@property (nonatomic, strong) UILabel *nikeNameLabel;
+@property (nonatomic, strong) NSMutableArray *imageArray;
+
 /** <登录昵称> */
 @property (nonatomic, copy) NSString *loginStr;
-
+/** <微博字典> */
+@property (nonatomic, strong) NSMutableDictionary *dic;
+/** <Bmob> */
+@property (nonatomic, strong) BmobUser *bUser;
+/** <微博用户> */
+@property (nonatomic, strong) HWAccount *account;
+/** <<#draw#>> */
+@property (nonatomic, strong) LZ_HeadView *mineHead;
+/** <bool> */
+@property (nonatomic, assign) BOOL *isSina;
 @end
 
 @implementation MineViewController
+- (NSMutableDictionary *)dic
+{
+    if (!_dic) {
+        self.dic = [[NSMutableDictionary alloc] init];
+    }
+    return _dic;
+}
 - (UITableView *)tableView {
     if (_tableView == nil) {
         self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 64 - 44) style:UITableViewStylePlain];
@@ -33,74 +55,91 @@
     }
     return _tableView;
 }
-- (UIButton *)headImageButton {
-    if (_headImageButton == nil) {
-        self.headImageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.headImageButton.frame = CGRectMake(20, 20, SCREEN_WIDTH / 3, SCREEN_WIDTH / 3);
-        [self.headImageButton setBackgroundColor:[UIColor whiteColor]];
-        [self.headImageButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        self.headImageButton.layer.cornerRadius = 65;
-        self.headImageButton.clipsToBounds = YES;
-    }
-    return _headImageButton;
-}
-- (UILabel *)nikeNameLabel {
-    if (_nikeNameLabel == nil) {
-        self.nikeNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH / 2, 55, SCREEN_WIDTH / 2, 60)];
-        self.nikeNameLabel.numberOfLines = 0;
-        self.nikeNameLabel.textColor = [UIColor whiteColor];
-    }
-    return _nikeNameLabel;
-}
-- (void)setting{
-    NSURL *url = [NSURL URLWithString:@"prefs:root=WIFI"];
-    if ([[UIApplication sharedApplication] canOpenURL:url])
-    {
-        [[UIApplication sharedApplication] openURL:url];
-    }else{
-        NSURL *url2 = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-        [[UIApplication sharedApplication] openURL:url2];
-    }
-}
-- (void)userlogout{
-    [BmobUser logout];
-    [self viewWillAppear:YES];
-}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.tableView.scrollEnabled = NO;
     [self.view addSubview:self.tableView];
-    UIView *headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT / 4)];
-    headView.backgroundColor = HWColor(96, 185, 191, 1.0);
-    [headView addSubview:self.headImageButton];
-    [headView addSubview:self.nikeNameLabel];
-    self.tableView.tableHeaderView = headView;
+    self.imageArray = [NSMutableArray arrayWithObjects:@"mine_clear",@"mine_message",@"mine_share",@"mine_appStore",@"mine_appVersion",@"iconfont-qq-3",nil];
+    self.titleArray = [NSMutableArray arrayWithObjects:@"清除图片缓存",@"用户反馈",@"分享给好友",@"给我评分",@"当前版本1.1", @"退出登录",nil];
     
-    self.imageArray = @[@"mine_clear",@"mine_message",@"mine_share",@"mine_appStore",@"mine_appVersion",@"iconfont-qq-3"];
-    self.titleArray = [NSMutableArray arrayWithObjects:@"清除图片缓存",@"用户反馈",@"分享给好友",@"给我评分",@"当前版本1.0", @"QQ:1713396133",nil];
+       self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    BmobUser *bUser = [BmobUser getCurrentUser];
-    if (!bUser) {
-        //对象为空时，可打开用户注册界面
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:0 target:self action:@selector(setting)];
-        [self.headImageButton setTitle:@"登陆/注册" forState:UIControlStateNormal];
-        [self.headImageButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
-        self.nikeNameLabel.text = @"欢迎来到南阳自助游";
+    [self makeImageWithName];
+//    self.bUser = [BmobUser getCurrentUser];
+//    if (self.bUser && self.titleArray.count == 4) {
+//        [self.imageArray addObject:@"iconfont-qq-3"];
+//        [self.titleArray addObject:@"退出登录"];
+//    }
+//    self.bUser = [BmobUser getCurrentUser];
+//    fSLog(@"%@",self.bUser.username);
+//    fSLog(@"%lu",self.titleArray.count);
+//    if (!self.bUser && self.titleArray.count == 5) {
+//        [self.imageArray removeObjectAtIndex:5];
+//        [self.titleArray removeObjectAtIndex:5];
+//    }
+
+}
+
+//______________________________________________________________________________
+#pragma mark    //[业务逻辑]
+- (void)makeImageWithName{
+    self.bUser = [BmobUser getCurrentUser];
+    self.account = [HWAccountTool account];
     
+    self.mineHead.imageView.layer.cornerRadius     = 50;
+    self.mineHead.imageView.clipsToBounds          = YES;
+    if (!self.bUser) {
+        self.mineHead.imageView.image = [UIImage imageNamed:@"phloder"];
+        [self.mineHead.userName setTitle:@"欢迎来到南阳自助游" forState:UIControlStateNormal];
+        
+    } else {
+        self.mineHead.imageView.image = [UIImage imageWithContentsOfFile:kPath];
+        [self.mineHead.userName setTitle:self.bUser.username forState:UIControlStateNormal];
+    }
+    
+    
+    
+    
+}
+- (void)login:(UIButton *)btn{
+    if (!self.bUser) {
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LZLogin" bundle:nil];
+        UINavigationController *nav = sb.instantiateInitialViewController;
+        [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
-       
-    //进行操作
-    //-(id)objectForKey:(id)key;
-    self.loginStr = bUser.username;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"退出" style:0 target:self action:@selector(userlogout)];
-    [self.headImageButton setImage:[UIImage imageNamed:@"tabbar_profile"] forState:UIControlStateNormal];
-    self.nikeNameLabel.text = self.loginStr;
-    fSLog(@"%@",bUser);
-        }
+        LZ_Mine_Head_DetailViewController *lz = [LZ_Mine_Head_DetailViewController new];
+        [self.navigationController pushViewController:lz animated:YES];
+    }
+    
+}
+//==============================================================================
+#pragma mark    //[cell处理]
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    self.mineHead = [[[NSBundle mainBundle] loadNibNamed:@"LZ_HeadView" owner:nil options:nil] lastObject];
+    
+    UIButton *headBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    headBtn.frame = self.mineHead.frame;
+    [headBtn addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
+    [self.mineHead addSubview:headBtn];
+    
+    [self makeImageWithName];
+
+    return self.mineHead;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 100;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.titleArray.count;
+    
+        return self.titleArray.count;
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -111,162 +150,101 @@
     }
     //去掉cell选中颜色
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
-    cell.textLabel.text = self.titleArray[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    cell.textLabel.text = self.titleArray[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
+    
     
     return cell;
 }
-#pragma mark -----------  UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-        {
-            [ProgressHUD show:@"正在为您清理中..."];
-            [self performSelector:@selector(clearImage) withObject:nil afterDelay:2.0];
+#pragma mark    //[选中方法]
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 5) {
+        self.bUser = [BmobUser getCurrentUser];
+        [BmobUser logout];
+        self.account = [HWAccountTool account];
+        if (self.account) {
+            fSLog(@"%@",self.account);
+            [self userlogout];
         }
-            break;
-        case 1:
-        {
-            //发送邮件
-            [self sendEmail];
-        }
-            break;
-        case 2:
-        {
-            //分享
-            [self share];
-        }
-            break;
-        case 3:
-        {
-            //appStore评分
-            NSString *str = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app"];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
-        }
-            break;
-        case 4:
-        {
-            //检测当前版本
-            [ProgressHUD show:@"正在为您检测中..."];
-            [self performSelector:@selector(checkAppVersion) withObject:nil afterDelay:2.0];
-        }
-            break;
-        default:
-            break;
-    }
-}
-
-- (void)login:(UIButton *)btn{
+        [self makeImageWithName];
     
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LZLogin" bundle:nil];
-    UINavigationController *nav = sb.instantiateInitialViewController;
-    [self.navigationController presentViewController:nav animated:YES completion:nil];
+      
+        
+}
+
+}
+//==========================================================================================================================================================================================================================================
+
+//______________________________________________________________________________
+
+#pragma mark    //[新浪退出]
+- (void)userlogout{
+        // 1.请求管理者
+        AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+        sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+        // 2.拼接请求参数
+        NSString *URLString = @"https://api.weibo.com/oauth2/revokeoauth2?";
+        // 3.发送请求
+        [sessionManager GET:[NSString stringWithFormat:@"%@access_token=%@",URLString,self.account.access_token] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+            
+        } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            fSLog(@"%@",responseObject);
+//            if ([responseObject[@"result"] isEqualToString:@"true"]) {
+                NSFileManager* fileManager=[NSFileManager defaultManager];
+                BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:HWAccountPath];
+                if (!blHave) {
+                    fSLog(@"no  have");
+                    return ;
+                }else {
+                    fSLog(@" have");
+                    BOOL blDele= [fileManager removeItemAtPath:HWAccountPath error:nil];
+                    if (blDele) {
+                        fSLog(@"dele success");
+                    }else {
+                        fSLog(@"dele fail");
+                    }
+                    
+                }
+//            }
+            [ProgressHUD showSuccess:@"退出成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [ProgressHUD dismiss];
+            });
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            fSLog(@"%@",error);
+        }];
+}
+//==============================================================================
+//______________________________________________________________________________
+#pragma mark    //[新浪登录]
+- (void)setupUserInfo
+{
+    self.account = [HWAccountTool account];
+    // 1.请求管理者
+    AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
+    sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    // 2.拼接请求参数
+    NSString *URLString = @"https://api.weibo.com/2/users/show.json?";
+    // 3.发送请求
+    [sessionManager GET:[NSString stringWithFormat:@"%@access_token=%@&uid=%@",URLString,self.account.access_token,self.account.uid] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        self.dic = responseObject;
+        fSLog(@"%@",self.dic[@"name"]);
+        
+        
+        //        fSLog(@"%@",responseObject);
+        [self makeImageWithName];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        fSLog(@"%@",error);
+    }];
     
 }
 
-- (void)sendEmail {
-    //初始化
-    MFMailComposeViewController *picker = [[MFMailComposeViewController alloc] init];
-    //设置代理
-    picker.mailComposeDelegate = self;
-    //设置主题
-    [picker setSubject:@"用户反馈"];
-    //设置收件人
-    NSArray *recive = [NSArray arrayWithObjects:@"1713396133@qq.com", nil];
-    [picker setToRecipients:recive];
-    //设置发送内容
-    NSString *text = @"请留下您宝贵的意见";
-    [picker setMessageBody:text isHTML:NO];
-    //推出视图
-    [self presentViewController:picker animated:YES completion:nil];
-}
-/*
- Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
- if (mailClass != nil) {
- // We must always check whether the current device is configured for sending emails
- if ([MFMailComposeViewController canSendMail]) {
- //初始化发送邮件类对象
- MFMailComposeViewController *mailVC = [[MFMailComposeViewController alloc] init];
- //设置代理
- mailVC.mailComposeDelegate = self;
- 
- //设置主题：
- [mailVC setSubject:@"用户反馈"];
- 
- //设置收件人
- NSArray *receive = [NSArray arrayWithObjects:@"1713396133@qq.com", nil];
- 
- [mailVC setToRecipients:receive];
- 
- //设置发送内容
- NSString *text = @"请留下您宝贵意见";
- [mailVC setMessageBody:text isHTML:NO];
- 
- //推出视图
- [self presentViewController:mailVC animated:YES completion:nil];
- } else {
- fSLog(@"未配置邮箱账号");
- }
- } else {
- fSLog(@"当前设备不能发送");
- }
- */
-//邮件发送完成调用的方法
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    //关闭邮件发送窗口
-    [self dismissViewControllerAnimated:YES completion:nil];
-    switch (result)
-    {
-        case MFMailComposeResultCancelled: //取消
-            fSLog(@"MFMailComposeResultCancelled-取消");
-            break;
-        case MFMailComposeResultSaved: // 保存
-            fSLog(@"MFMailComposeResultSaved-保存邮件");
-            break;
-        case MFMailComposeResultSent: // 发送
-            fSLog(@"MFMailComposeResultSent-发送邮件");
-            break;
-        case MFMailComposeResultFailed: // 尝试保存或发送邮件失败
-            fSLog(@"MFMailComposeResultFailed: %@...",[error localizedDescription]);
-            break;
-    }
-    
-    // 关闭邮件发送视图
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)checkAppVersion {
-    [ProgressHUD showSuccess:@"恭喜您！当前已是最新版本！"];
-}
-
-- (void)share {
-//    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-//    self.shareView = [[ShareView alloc] init];
-//    [window addSubview:self.shareView];
-    return;
-}
-
-- (void)clearImage {
-    [ProgressHUD showSuccess:@"占您的地儿已经挪开."];
-    //清除缓存
-    fSLog(@"%@",NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES));
-    SDImageCache *imageCache = [SDImageCache sharedImageCache];
-    [imageCache clearDisk];
-    [self.titleArray replaceObjectAtIndex:0 withObject:@"清除图片缓存"];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-}
-
-//- (void)pushShareWeiboVC {
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//    [self.shareView removeAllChildrenViews];
-//    
-//    UIStoryboard *mineStoryBoard = [UIStoryboard storyboardWithName:@"Mine" bundle:nil];
-//    UINavigationController *shareNav = [mineStoryBoard instantiateViewControllerWithIdentifier:@"ShareNav"];
-//    [self.navigationController presentViewController:shareNav animated:YES completion:nil];
-//}
+//==============================================================================
 
 
 

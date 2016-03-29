@@ -9,8 +9,11 @@
 #import "LZRegisterViewController.h"
 #import <BmobSDK/Bmob.h>
 #import "ProgressHUD.h"
+#import "LZPValidate.h"
+
 
 @interface LZRegisterViewController ()<UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *userEmail;
 @property (weak, nonatomic) IBOutlet UITextField *userPassWord;
@@ -32,11 +35,12 @@
     //    self.SwitchOn.on = NO;
     
 }
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     [self.userName becomeFirstResponder];
     
 }
+
 - (IBAction)SwitchOn:(UISwitch *)sender {
     if (sender.isOn == YES) {
         self.userPassWord.secureTextEntry = NO;
@@ -69,25 +73,13 @@
         //alert输入密码不能为空
         return NO;
     }
-    if (![self validateEmail:self.userEmail.text]) {
+    if (![LZPValidate validateEmail:self.userEmail.text]) {
         return NO;
     }
     
-    
-    //判断手机号
-    //    NSString *MOBILE = @"^1(3[0-9]|5[0-35-9]|8[025-9]|70|77)\\d{8}$";
-//    372809375@qq.com
-//    1713396133@qq.com
-    
     return YES;
 }
-- (BOOL)validateEmail:(NSString *)email{
-    //判断是否是邮箱
-    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-//    NSString *emailRegex = @"/\w+@\w+\.(com|net|org|edu)/i";
-    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-    return [emailTest evaluateWithObject:email];
-}
+
 - (IBAction)login:(id)sender {
     if (![self checkout]) {
         return;

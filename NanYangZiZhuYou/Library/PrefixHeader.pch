@@ -13,21 +13,70 @@
 #define SCREEN_WIDTH    [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT    [[UIScreen mainScreen] bounds].size.height
 
+//#ifdef DEBUG
+//#define fSLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+//#else
+//#define fSLog(...)
+//#endif
+//==============================================================================
 #ifdef DEBUG
-#   define fSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define fSLog(FORMAT, ...) fprintf(stderr,"%s=Line:%d\t%s\n",__PRETTY_FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
-#   define fSLog(...)
+#define fSLog(...)
 #endif
+//==============================================================================
+//#ifdef DEBUG
+//#   define fSLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+//#else
+//#   define fSLog(...)
+//#endif
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "UIView+Extension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "Header.h"
+#import "ProgressHUD.h"
 
 // RGB颜色
 #define HWColor(r, g, b ,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
-
 // 随机色
 #define HWRandomColor HWColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+// 账号的存储路径
+#define HWAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.plist"]
 #endif /* PrefixHeader_pch */
+
+#define kDD [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+#define kPath [kDD stringByAppendingPathComponent:@"head.png"]
+//#define kPath [NSString stringWithFormat:@"%@/%@.png",kDD,@"head"]
+
+//weibo
+#define kAppKey @"874877049"
+#define kAppSecret @"2889299d8dd53abc21a4219fdbcd15a0"
+#define kRedirectURL @"https://api.weibo.com/oauth2/default.html"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

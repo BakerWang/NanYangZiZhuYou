@@ -1,0 +1,600 @@
+{
+	indexList = {
+		authconfig = {
+			weixin = 0;
+		};
+		bannerList = (
+			{
+				category1id = 0;
+				category2id = "";
+				hrefurl = "www.nygdsoft.com";
+				indextype = "-1";
+				opentype = 0;
+				productid = "-1";
+				shopid = "-1";
+				showpic = "http://p.hpwifi.com/upload/201547/3271.jpg";
+				title = "";
+				type = 1;
+				typevalue = 0;
+			},
+			{
+				category1id = 66;
+				category2id = "-1";
+				hrefurl = "";
+				indextype = "-1";
+				opentype = 0;
+				productid = "-1";
+				shopid = "-1";
+				showpic = "http://p.hpwifi.com/upload/2015421/3495.jpg";
+				title = "";
+				type = 0;
+				typevalue = 2;
+			},
+			{
+				category1id = 67;
+				category2id = "-1";
+				hrefurl = "";
+				indextype = "-1";
+				opentype = 0;
+				productid = "-1";
+				shopid = "-1";
+				showpic = "http://p.hpwifi.com/upload/2015421/3497.jpg";
+				title = "";
+				type = 0;
+				typevalue = 4;
+			},
+			{
+				category1id = 24410;
+				category2id = "\U5357\U9633\U5e7f\U8fbe\U8f6f\U4ef6\U79d1\U6280\U6709\U9650\U516c\U53f8";
+				hrefurl = "";
+				indextype = "-1";
+				opentype = 0;
+				productid = "-1";
+				shopid = "-1";
+				showpic = "http://p.hpwifi.com/upload/2015421/3499.jpg";
+				title = "";
+				type = 0;
+				typevalue = 1;
+			},
+			{
+				category1id = 66;
+				category2id = "-1";
+				hrefurl = "";
+				indextype = "-1";
+				opentype = 0;
+				productid = "-1";
+				shopid = "-1";
+				showpic = "http://p.hpwifi.com/upload/2015421/3497.jpg";
+				title = "";
+				type = 0;
+				typevalue = 4;
+			},
+		);
+		categroyList = (
+			{
+				categroyname = "\U9910\U996e";
+				catename = "\U9910\U996e";
+				cattype = 1;
+				ctype = 1;
+				"New item" = "";
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 66;
+				icon = "http://p.hpwifi.com/upload/55/0414/industry/130302-b.png";
+				ordernum = 1;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U9152\U5e97";
+				catename = "\U9152\U5e97";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 71;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/123983-b.png";
+				ordernum = 2;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U5a31\U4e50";
+				catename = "\U4f11\U95f2\U5a31\U4e50";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 67;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/123992-b.png";
+				ordernum = 3;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U4e3d\U4eba";
+				catename = "\U4e3d\U4eba";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 69;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/123993-b.png";
+				ordernum = 4;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U8d85\U5e02\U4fbf\U5229";
+				catename = "\U8d2d\U7269";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 70;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/124000-b.png";
+				ordernum = 5;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U751f\U6d3b\U670d\U52a1";
+				catename = "\U751f\U6d3b\U670d\U52a1";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 68;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/123996-b.png";
+				ordernum = 6;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U533b\U9662\U95e8\U8bca";
+				catename = "\U533b\U9662";
+				cattype = 2;
+				ctype = 2;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 192;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/124002-b.png";
+				ordernum = 7;
+				secondcatid = 0;
+			},
+			{
+				categroyname = "\U7f8e\U5bb9\U7f8e\U53d1";
+				catename = "\U5176\U4ed6";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 72;
+				icon = "http://p.hpwifi.com/upload/55/047/industry/124003-b.png";
+				ordernum = 8;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U7ea6\U8f66";
+				catename = "\U4fbf\U6c11\U670d\U52a1";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 168;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127171-b.png";
+				ordernum = 9;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U4fbf\U6c11\U670d\U52a1";
+				catename = "\U4fbf\U6c11\U670d\U52a1";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 168;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127186-b.png";
+				ordernum = 10;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U7535\U5f71\U9662";
+				catename = "\U7535\U5f71\U9662";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 67;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127195-b.png";
+				ordernum = 11;
+				secondcatid = 107;
+			},
+			{
+				categroyname = KTV;
+				catename = KTV;
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 67;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127196-b.png";
+				ordernum = 12;
+				secondcatid = 104;
+			},
+			{
+				categroyname = "\U9762\U70b9";
+				catename = "\U9762\U5305\U751c\U70b9";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 66;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127198-b.png";
+				ordernum = 13;
+				secondcatid = 76;
+			},
+			{
+				categroyname = "\U5546\U57ce";
+				catename = "\U8d2d\U7269";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 70;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127201-b.png";
+				ordernum = 14;
+				secondcatid = "-1";
+			},
+			{
+				categroyname = "\U706b\U9505";
+				catename = "\U706b\U9505";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = 66;
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127206-b.png";
+				ordernum = 15;
+				secondcatid = 74;
+			},
+			{
+				categroyname = "\U66f4\U591a";
+				catename = "<null>";
+				cattype = 1;
+				ctype = 1;
+				customhrefopentype = 0;
+				customhrefurl = "";
+				firstcatid = "-1";
+				icon = "http://p.hpwifi.com/upload/55/0410/industry/127208-b.png";
+				ordernum = 16;
+				secondcatid = "-1";
+			},
+		);
+		customtitle = {
+			hotrecommend = "\U70ed\U95e8\U63a8\U8350";
+		};
+		fastbuyMap = {
+			flashSaleList = ();
+		};
+		"fastbuy_custom_list" = ();
+		hotList = (
+			{
+				customhrefopentype = "<null>";
+				customhrefurl = "<null>";
+				customid = "<null>";
+				customintro = "<null>";
+				customshowpic = {};
+				customtitle = "<null>";
+				htmltext = "";
+				id = 3594;
+				iscustom = 0;
+				linktotype = "<null>";
+				ordernum = "<null>";
+				originalprice = 999;
+				price = "0.01";
+				purchasedcount = 10;
+				"sell_isshow" = 0;
+				shopid = 24410;
+				showpic = (
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135334-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/047/teambuy/124197-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/047/teambuy/124200-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/047/teambuy/124212-b.jpg";
+					},
+					{
+						image = "/imagesv2/sctp.png";
+					},
+				);
+				subtitle = "\U5fae\U7eb5\U6a2a\U5fae\U4fe1\U8425\U9500\Uff08\U6d4b\U8bd5\U7528\Uff09";
+				title = "\U5fae\U4fe1\U8425\U9500\U5e73\U53f0\U56e2\U8d2d\U5f00\U59cb";
+			},
+			{
+				customhrefopentype = "<null>";
+				customhrefurl = "<null>";
+				customid = "<null>";
+				customintro = "<null>";
+				customshowpic = {};
+				customtitle = "<null>";
+				htmltext = "";
+				id = 0;
+				iscustom = 0;
+				linktotype = "<null>";
+				ordernum = "<null>";
+				originalprice = 0;
+				price = 0;
+				purchasedcount = 0;
+				"sell_isshow" = 0;
+				shopid = 0;
+				showpic = ();
+				subtitle = "";
+				title = "";
+			},
+			{
+				customhrefopentype = "<null>";
+				customhrefurl = "<null>";
+				customid = "<null>";
+				customintro = "<null>";
+				customshowpic = {};
+				customtitle = "<null>";
+				htmltext = "";
+				id = 4037;
+				iscustom = 0;
+				linktotype = "<null>";
+				ordernum = "<null>";
+				originalprice = 2000;
+				price = 1200;
+				purchasedcount = 0;
+				"sell_isshow" = 0;
+				shopid = 24410;
+				showpic = (
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135349-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135350-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135352-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135367-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135368-b.jpg";
+					},
+				);
+				subtitle = "\U7535\U5b50\U5546\U52a1\U3001O2O\U3001\U4f01\U4e1a\U578b\U7f51\U7ad9\U5efa\U8bbe";
+				title = "\U7f51\U7ad9\U5236\U4f5c";
+			},
+			{
+				customhrefopentype = "<null>";
+				customhrefurl = "<null>";
+				customid = "<null>";
+				customintro = "<null>";
+				customshowpic = {};
+				customtitle = "<null>";
+				htmltext = "";
+				id = 4035;
+				iscustom = 0;
+				linktotype = "<null>";
+				ordernum = "<null>";
+				originalprice = 999;
+				price = 860;
+				purchasedcount = 0;
+				"sell_isshow" = 0;
+				shopid = 24410;
+				showpic = (
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135339-b.jpg";
+					},
+					{
+						image = "http://imageyun.static.hpwifi.com/upload/10/0421/teambuy/135340-b.jpg";
+					},
+					{
+						image = "/imagesv2/sctp.png";
+					},
+					{
+						image = "/imagesv2/sctp.png";
+					},
+					{
+						image = "/imagesv2/sctp.png";
+					},
+				);
+				subtitle = "\U5fae\U4fe1\U5206\U9500\U7cfb\U7edf";
+				title = "\U5fae\U7eb5\U6a2a\U5fae\U4fe1\U5206\U9500\U7cfb\U7edf";
+			},
+		);
+		iscustom = {
+			fastbuy = 0;
+		};
+		personaltailor = (
+			{
+				activityList = ();
+				agentId = 0;
+				bannerList = ();
+				categoryList = ();
+				cityId = 0;
+				cityName = "";
+				createtime = 0;
+				id = 1;
+				intro = "\U7f8e\U7532\U4ecb\U7ecd";
+				modifytime = 0;
+				name = "\U7f8e\U7532";
+				orderCount = 0;
+				ordernum = 0;
+				"personalTailorServicePhone" = "";
+				"personalTailorServiceTime" = "";
+				provinceId = 0;
+				provinceName = "";
+				"serviceLockStrategyAfter" = 60;
+				"serviceLockStrategyBefore" = 60;
+				serviceTimeBegin = "10:00:00";
+				serviceTimeFinish = "21:00:00";
+				serviceTimeNode = 60;
+				showpic = "http://testimage.static.hpwifi.com/personaltailor/industry/5.png";
+				status = 1;
+			},
+			{
+				activityList = ();
+				agentId = 0;
+				bannerList = ();
+				categoryList = ();
+				cityId = 0;
+				cityName = "";
+				createtime = 0;
+				id = 2;
+				intro = "\U6444\U5f71\U4ecb\U7ecd";
+				modifytime = 0;
+				name = "\U6444\U5f71";
+				orderCount = 0;
+				ordernum = 0;
+				"personalTailorServicePhone" = "";
+				"personalTailorServiceTime" = "";
+				provinceId = 0;
+				provinceName = "";
+				"serviceLockStrategyAfter" = 60;
+				"serviceLockStrategyBefore" = 60;
+				serviceTimeBegin = "10:00:00";
+				serviceTimeFinish = "21:00:00";
+				serviceTimeNode = 60;
+				showpic = "http://testimage.static.hpwifi.com/personaltailor/industry/6.png";
+				status = 1;
+			},
+			{
+				activityList = ();
+				agentId = 0;
+				bannerList = ();
+				categoryList = ();
+				cityId = 0;
+				cityName = "";
+				createtime = 0;
+				id = 3;
+				intro = "\U63a8\U62ff\U4ecb\U7ecd";
+				modifytime = 0;
+				name = "\U63a8\U62ff";
+				orderCount = 0;
+				ordernum = 0;
+				"personalTailorServicePhone" = "";
+				"personalTailorServiceTime" = "";
+				provinceId = 0;
+				provinceName = "";
+				"serviceLockStrategyAfter" = 60;
+				"serviceLockStrategyBefore" = 60;
+				serviceTimeBegin = "10:00:00";
+				serviceTimeFinish = "21:00:00";
+				serviceTimeNode = 60;
+				showpic = "http://testimage.static.hpwifi.com/personaltailor/industry/7.png";
+				status = 1;
+			},
+			{
+				activityList = ();
+				agentId = 0;
+				bannerList = ();
+				categoryList = ();
+				cityId = 0;
+				cityName = "";
+				createtime = 0;
+				id = 4;
+				intro = "\U6d17\U8f66\U4ecb\U7ecd";
+				modifytime = 0;
+				name = "\U6d17\U8f66";
+				orderCount = 0;
+				ordernum = 0;
+				"personalTailorServicePhone" = "";
+				"personalTailorServiceTime" = "";
+				provinceId = 0;
+				provinceName = "";
+				"serviceLockStrategyAfter" = 60;
+				"serviceLockStrategyBefore" = 60;
+				serviceTimeBegin = "10:00:00";
+				serviceTimeFinish = "21:00:00";
+				serviceTimeNode = 60;
+				showpic = "http://testimage.static.hpwifi.com/personaltailor/industry/8.png";
+				status = 1;
+			},
+		);
+		showcity = 1;
+		switchPersonaltailor = 0;
+		switchRedpackets = 0;
+		topicList = (
+			{
+				content = "\U5403\U5728\U5357\U9633";
+				customhrefopentype = 0;
+				customhrefurl = "";
+				htmltext = "";
+				id = 263;
+				showpic = (
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3487.jpg";
+					},
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3488.jpg";
+					},
+				);
+				title = "\U5403\U5728\U5357\U9633";
+				topictype = 0;
+				videopic = "";
+				videourl = "";
+			},
+			{
+				content = "\U7f8e\U5728\U5357\U9633";
+				customhrefopentype = 0;
+				customhrefurl = "";
+				htmltext = "";
+				id = 277;
+				showpic = (
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3489.jpg";
+					},
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3490.jpg";
+					},
+				);
+				title = "\U7f8e\U5728\U5357\U9633";
+				topictype = 0;
+				videopic = "";
+				videourl = "";
+			},
+			{
+				content = "\U4f4f\U5728\U5357\U9633";
+				customhrefopentype = 0;
+				customhrefurl = "";
+				htmltext = "";
+				id = 284;
+				showpic = (
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3491.jpg";
+					},
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3492.jpg";
+					},
+				);
+				title = "\U4f4f\U5728\U5357\U9633";
+				topictype = 0;
+				videopic = "";
+				videourl = "";
+			},
+			{
+				content = "\U5a31\U5728\U5357\U9633";
+				customhrefopentype = 0;
+				customhrefurl = "";
+				htmltext = "";
+				id = 285;
+				showpic = (
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3493.jpg";
+					},
+					{
+						image = "http://p.hpwifi.com/upload/2015421/3494.jpg";
+					},
+				);
+				title = "\U5a31\U5728\U5357\U9633";
+				topictype = 0;
+				videopic = "";
+				videourl = "";
+			},
+		);
+	};
+}

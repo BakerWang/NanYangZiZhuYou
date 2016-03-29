@@ -1,0 +1,26 @@
+{
+ordertype =     (
+{
+ordercol = 1;
+ordername = "\U79bb\U6211\U6700\U8fd1";
+},
+{
+ordercol = 2;
+ordername = "\U4eba\U6c14\U6700\U9ad8";
+},
+{
+ordercol = 3;
+ordername = "\U8bc4\U4ef7\U6700\U597d";
+},
+{
+ordercol = 4;
+ordername = "\U4eba\U5747\U6700\U4f4e";
+},
+{
+ordercol = 5;
+ordername = "\U4eba\U5747\U6700\U9ad8";
+}
+);
+shops =     (
+);
+}

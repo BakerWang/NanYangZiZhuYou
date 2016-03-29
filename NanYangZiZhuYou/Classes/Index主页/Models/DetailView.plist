@@ -1,0 +1,287 @@
+{
+ordertype =     (
+{
+ordercol = 1;
+ordername = "\U79bb\U6211\U6700\U8fd1";
+},
+{
+ordercol = 2;
+ordername = "\U4eba\U6c14\U6700\U9ad8";
+},
+{
+ordercol = 3;
+ordername = "\U8bc4\U4ef7\U6700\U597d";
+},
+{
+ordercol = 4;
+ordername = "\U4eba\U5747\U6700\U4f4e";
+},
+{
+ordercol = 5;
+ordername = "\U4eba\U5747\U6700\U9ad8";
+}
+);
+shops =     (
+{
+address = "\U8f66\U7ad9\U8def\U5de5\U8d38\U4e2d\U5fc33\U697c";
+areaid = 14673;
+averageconsumer = 100;
+categoryid = 68;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "179.09km";
+indextype = 0;
+isfee = 0;
+isvshop = 1;
+latitude = "33.004259";
+longitude = "112.521066";
+opentime = "09:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 119;
+secondname = "\U5176\U4ed6";
+shopid = 25192;
+shopname = "\U5357\U9633\U591a\U5a92\U4f53\U7f51\U7edc\U516c\U53f8";
+showpic = "http://imageyun.static.hpwifi.com/imagesv2/shopdefault.png";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U767d\U6cb3\U5927\U9053\U4e2d\U6bb5";
+areaid = 14673;
+averageconsumer = 23;
+categoryid = 66;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "181.21km";
+indextype = 1;
+isfee = 0;
+isvshop = 0;
+latitude = "32.987532";
+longitude = "112.565823";
+opentime = "9:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 73;
+secondname = "\U5c0f\U5403\U5feb\U9910";
+shopid = 28672;
+shopname = "\U5357\U9633\U4e07\U91cc\U9999\U5c0f\U5403\U5e97";
+showpic = "http://imageyun.static.hpwifi.com/upload/72/056/logo/142149-s.jpg";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U4ef2\U666f\U82b1\U56ed1703\U5ba4";
+areaid = 14673;
+averageconsumer = 0;
+categoryid = 67;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "179.47km";
+indextype = 2;
+isfee = 1;
+isvshop = 1;
+latitude = "33.003361";
+longitude = "112.56895";
+opentime = "9:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 100;
+secondname = "\U5496\U5561\U5385";
+shopid = 24329;
+shopname = "\U5fae\U7eb5\U6a2a";
+showpic = "http://imageyun.static.hpwifi.com/upload/29/0421/logo/135328-s.jpg";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U836f\U90fd\U8def\U4ef2\U666f\U82b1\U56ed1703\U5ba4";
+areaid = 14673;
+averageconsumer = 100;
+categoryid = 70;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "179.47km";
+indextype = 0;
+isfee = 0;
+isvshop = 1;
+latitude = "33.003346";
+longitude = "112.56895";
+opentime = "09:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 131;
+secondname = "\U5176\U4ed6";
+shopid = 26357;
+shopname = "\U5357\U9633\U5e7f\U8fbe\U5546\U57ce";
+showpic = "http://imageyun.static.hpwifi.com/imagesv2/shopdefault.png";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U4ef2\U666f\U82b1\U56ed1703\U5ba4";
+areaid = 14673;
+averageconsumer = 100;
+categoryid = 67;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "179.47km";
+indextype = 0;
+isfee = 1;
+isvshop = 1;
+latitude = "33.00335";
+longitude = "112.568972";
+opentime = "9:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 100;
+secondname = "\U5496\U5561\U5385";
+shopid = 24410;
+shopname = "\U5357\U9633\U5e7f\U8fbe\U8f6f\U4ef6\U79d1\U6280\U6709\U9650\U516c\U53f8";
+showpic = "http://imageyun.static.hpwifi.com/upload/10/0421/logo/135327-s.jpg";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U5357\U53ec\U53bf\U4e07\U4f73\U5eb7\U5065\U5927\U836f\U623f";
+areaid = 14673;
+averageconsumer = 100;
+categoryid = 168;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "12041.76km";
+indextype = 0;
+isfee = 1;
+isvshop = 1;
+latitude = "";
+longitude = "";
+opentime = "9:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 171;
+secondname = "\U6742\U8d27\U94fa/\U8d85\U5e02";
+shopid = 26740;
+shopname = "\U5eb7\U5065\U5927\U836f\U623f";
+showpic = "http://imageyun.static.hpwifi.com/upload/40/0425/logo/137905-s.jpg";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U65b0\U534e\U8def\U4e0e\U4ef2\U666f\U8def\U4ea4\U53c9\U53e3\U4e1c\U65b9\U4e0d\U591c\U57ce\U4e00\U697c";
+areaid = 14673;
+averageconsumer = 10;
+categoryid = 168;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "179.68km";
+indextype = 0;
+isfee = 0;
+isvshop = 1;
+latitude = "33.000735";
+longitude = "112.556112";
+opentime = "09:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 171;
+secondname = "\U6742\U8d27\U94fa/\U8d85\U5e02";
+shopid = 24823;
+shopname = "\U8d75\U7389\U674e\U663e\U6587\U5177\U6279\U53d1\U5e97";
+showpic = "http://imageyun.static.hpwifi.com/imagesv2/shopdefault.png";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U660e\U5c71\U8def\U4e2d\U6bb5";
+areaid = 14673;
+averageconsumer = 30;
+categoryid = 68;
+cityid = 11760;
+closetime = "20:00";
+commentnum = 0;
+distance = "178.34km";
+indextype = 0;
+isfee = 1;
+isvshop = 0;
+latitude = "33.01333";
+longitude = "112.565061";
+opentime = "8:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 112;
+secondname = "\U6c7d\U8f66\U670d\U52a1";
+shopid = 24825;
+shopname = "\U5b9b\U5cf0\U6c7d\U8f66\U7528\U54c1\U6279\U53d1\U5e97";
+showpic = "http://imageyun.static.hpwifi.com/upload/25/0418/logo/132820-s.jpg";
+starscore = 0;
+used = 0;
+},
+{
+address = "\U5510\U6cb3\U53bf\U5efa\U8bbe\U8def\U4e0e\U4eba\U6c11\U8def\U4ea4\U53c9\U53e3\U4e1c\U5317\U89d2";
+areaid = 14673;
+averageconsumer = 100;
+categoryid = 70;
+cityid = 11760;
+closetime = "22:00";
+commentnum = 0;
+distance = "217.47km";
+indextype = 0;
+isfee = 0;
+isvshop = 1;
+latitude = "32.6880692";
+longitude = "112.83811037";
+opentime = "9:00";
+ordernum = 10000;
+preferential =             {
+info =                 (
+);
+};
+provinceid = 11670;
+secondcatid = 130;
+secondname = "\U6570\U7801\U5bb6\U7535";
+shopid = 26902;
+shopname = "\U5510\U6cb3\U5409\U5229\U7535\U5668";
+showpic = "http://imageyun.static.hpwifi.com/upload/02/0425/logo/137939-s.jpg";
+starscore = 0;
+used = 0;
+}
+);
+}

@@ -27,6 +27,7 @@
 //    webView.scrollView.hidden = YES;
     // 伸缩页面至填充整个webView
     webView.scalesPageToFit = YES;
+    [ProgressHUD show:@"加载中..."];
     
     // 2.加载网页
     //http://www.tudou.com/programs/view/N0Sl6n5tufU#
@@ -41,6 +42,7 @@
 }
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [ProgressHUD dismiss];
     //列表
     //    NSMutableString *js1 = [NSMutableString string];
     //    [js1 appendString:@"var ul = document.getElementsByTagName('ul')[0];"];
@@ -69,4 +71,9 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [ProgressHUD dismiss];
+    
+    
+}
 @end

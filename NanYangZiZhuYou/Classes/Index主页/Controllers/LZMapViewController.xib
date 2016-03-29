@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LZMapViewController">
+            <connections>
+                <outlet property="customMapView" destination="xgN-N2-28h" id="UvN-DR-C6Y"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xgN-N2-28h">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </mapView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xgN-N2-28h" secondAttribute="trailing" id="1FR-uD-bEc"/>
+                <constraint firstAttribute="bottom" secondItem="xgN-N2-28h" secondAttribute="bottom" id="Qth-KU-ZZ3"/>
+                <constraint firstItem="xgN-N2-28h" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Rhq-Qs-DJm"/>
+                <constraint firstItem="xgN-N2-28h" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ehT-s6-Bx5"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
