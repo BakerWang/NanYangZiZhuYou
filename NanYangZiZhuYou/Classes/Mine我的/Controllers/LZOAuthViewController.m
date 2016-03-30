@@ -106,12 +106,11 @@
     [sessionManager GET:[NSString stringWithFormat:@"%@access_token=%@&uid=%@",URLString,account.access_token,account.uid] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        //把头像用户名保存在HWAccount里边
-        // 将返回的账号字典数据 --> 模型，存进沙盒
-        HWAccount *accountSina = [HWAccount accountWithDict:responseObject];
-        // 存储账号信息
-        [HWAccountTool saveAccount:accountSina];
+      
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        [userDefault setValue:responseObject[@"name"] forKey:@"name"];
+        [userDefault setValue:responseObject[@"avatar_hd"] forKey:@"avatar_hd"];
+        [userDefault synchronize];
         
         [self.navigationController popToRootViewControllerAnimated:YES];
         

@@ -163,6 +163,10 @@
     if (indexPath.row == 5) {
         self.bUser = [BmobUser getCurrentUser];
         [BmobUser logout];
+        NSUserDefaults *userDefatluts = [NSUserDefaults standardUserDefaults];
+        [userDefatluts removeObjectForKey:@"name"];
+        [userDefatluts removeObjectForKey:@"avatar_hd"];
+        [userDefatluts synchronize];
         self.account = [HWAccountTool account];
         if (self.account) {
             fSLog(@"%@",self.account);
@@ -191,23 +195,10 @@
             
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             fSLog(@"%@",responseObject);
-//            if ([responseObject[@"result"] isEqualToString:@"true"]) {
-                NSFileManager* fileManager=[NSFileManager defaultManager];
-                BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:HWAccountPath];
-                if (!blHave) {
-                    fSLog(@"no  have");
-                    return ;
-                }else {
-                    fSLog(@" have");
-                    BOOL blDele= [fileManager removeItemAtPath:HWAccountPath error:nil];
-                    if (blDele) {
-                        fSLog(@"dele success");
-                    }else {
-                        fSLog(@"dele fail");
-                    }
-                    
-                }
-//            }
+            if ([responseObject[@"result"] isEqualToString:@"true"]) {
+                
+                fSLog(@"移除授权成功");
+            }
             [ProgressHUD showSuccess:@"退出成功"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [ProgressHUD dismiss];

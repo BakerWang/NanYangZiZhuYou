@@ -71,12 +71,12 @@
 		7AAAA1961C79FFC7002E05F3 /* Index.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAAA1951C79FFC7002E05F3 /* Index.m */; };
 		7AC895381C9AA7DA002708FB /* LZMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC895361C9AA7DA002708FB /* LZMapViewController.m */; };
 		7AC895391C9AA7DA002708FB /* LZMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AC895371C9AA7DA002708FB /* LZMapViewController.xib */; };
+		7ACEF5FA1CAAA303009E112A /* LZPValidate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ACEF5F81CAAA303009E112A /* LZPValidate.a */; };
 		7AE3537C1C65C2D8008DA848 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE3537B1C65C2D8008DA848 /* main.m */; };
 		7AE3537F1C65C2D8008DA848 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE3537E1C65C2D8008DA848 /* AppDelegate.m */; };
 		7AE353811C65C2D8008DA848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE353801C65C2D8008DA848 /* Assets.xcassets */; };
 		7AE353841C65C2D8008DA848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE353821C65C2D8008DA848 /* LaunchScreen.storyboard */; };
 		7AEE6E4D1CA4D4E200DE9469 /* LZ_SMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEE6E4C1CA4D4E200DE9469 /* LZ_SMSViewController.m */; };
-		7AEE6E521CA4D5B000DE9469 /* libLZPValidate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEE6E511CA4D5B000DE9469 /* libLZPValidate.a */; };
 		B68F1F82402139C60F3DA494 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A97BBD8206C965306D92FC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -189,9 +189,14 @@
 		7AA5A3C01C777923009DBC5D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7AAAA1941C79FFC7002E05F3 /* Index.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Index.h; sourceTree = "<group>"; };
 		7AAAA1951C79FFC7002E05F3 /* Index.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Index.m; sourceTree = "<group>"; };
+		7ABC29B31CAA86BD00170912 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		7AC895351C9AA7DA002708FB /* LZMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMapViewController.h; sourceTree = "<group>"; };
 		7AC895361C9AA7DA002708FB /* LZMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZMapViewController.m; sourceTree = "<group>"; };
 		7AC895371C9AA7DA002708FB /* LZMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LZMapViewController.xib; sourceTree = "<group>"; };
+		7ACEF5F61CAAA303009E112A /* LZPButtonTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPButtonTimer.h; sourceTree = "<group>"; };
+		7ACEF5F71CAAA303009E112A /* LZPPooCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPPooCodeView.h; sourceTree = "<group>"; };
+		7ACEF5F81CAAA303009E112A /* LZPValidate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = LZPValidate.a; sourceTree = "<group>"; };
+		7ACEF5F91CAAA303009E112A /* LZPValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPValidate.h; sourceTree = "<group>"; };
 		7AE353771C65C2D8008DA848 /* NanYangZiZhuYou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanYangZiZhuYou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE3537B1C65C2D8008DA848 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AE3537D1C65C2D8008DA848 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -201,10 +206,6 @@
 		7AE353851C65C2D8008DA848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AEE6E4B1CA4D4E200DE9469 /* LZ_SMSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZ_SMSViewController.h; sourceTree = "<group>"; };
 		7AEE6E4C1CA4D4E200DE9469 /* LZ_SMSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZ_SMSViewController.m; sourceTree = "<group>"; };
-		7AEE6E4E1CA4D5B000DE9469 /* LZPButtonTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPButtonTimer.h; sourceTree = "<group>"; };
-		7AEE6E4F1CA4D5B000DE9469 /* LZPPooCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPPooCodeView.h; sourceTree = "<group>"; };
-		7AEE6E501CA4D5B000DE9469 /* LZPValidate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPValidate.h; sourceTree = "<group>"; };
-		7AEE6E511CA4D5B000DE9469 /* libLZPValidate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libLZPValidate.a; sourceTree = "<group>"; };
 		7AEE6F6D1C914F3900B6534C /* NanYangZiZhuYou.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NanYangZiZhuYou.entitlements; sourceTree = "<group>"; };
 		A4A97BBD8206C965306D92FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C7D1E9D465BB44721AF86 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -222,7 +223,7 @@
 				7A42C05B1CA4D89E0045F09C /* libstdc++.tbd in Frameworks */,
 				7A42C0581CA4D8110045F09C /* MOBFoundation.framework in Frameworks */,
 				7A42C0591CA4D8110045F09C /* SMS_SDK.framework in Frameworks */,
-				7AEE6E521CA4D5B000DE9469 /* libLZPValidate.a in Frameworks */,
+				7ACEF5FA1CAAA303009E112A /* LZPValidate.a in Frameworks */,
 				B68F1F82402139C60F3DA494 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +318,7 @@
 				7A99A57B1C9414590019F84E /* LZLifeViewController.m */,
 				7AC895351C9AA7DA002708FB /* LZMapViewController.h */,
 				7AC895361C9AA7DA002708FB /* LZMapViewController.m */,
+				7ABC29B31CAA86BD00170912 /* Location.gpx */,
 				7AC895371C9AA7DA002708FB /* LZMapViewController.xib */,
 			);
 			path = Controllers;
@@ -532,10 +534,10 @@
 		7AA5A3A11C777922009DBC5D /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				7AEE6E4E1CA4D5B000DE9469 /* LZPButtonTimer.h */,
-				7AEE6E4F1CA4D5B000DE9469 /* LZPPooCodeView.h */,
-				7AEE6E501CA4D5B000DE9469 /* LZPValidate.h */,
-				7AEE6E511CA4D5B000DE9469 /* libLZPValidate.a */,
+				7ACEF5F61CAAA303009E112A /* LZPButtonTimer.h */,
+				7ACEF5F71CAAA303009E112A /* LZPPooCodeView.h */,
+				7ACEF5F81CAAA303009E112A /* LZPValidate.a */,
+				7ACEF5F91CAAA303009E112A /* LZPValidate.h */,
 				7A51BF951C87DD0D00E79516 /* Header.h */,
 				7AA5A3C01C777923009DBC5D /* PrefixHeader.pch */,
 				7A5DEBBF1CA5613B0059A534 /* HWAccount.h */,
@@ -654,7 +656,7 @@
 				TargetAttributes = {
 					7AE353761C65C2D8008DA848 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JJL237F75C;
+						DevelopmentTeam = CCQ5LLLX4L;
 						SystemCapabilities = {
 							com.apple.OMC = {
 								enabled = 0;
@@ -914,8 +916,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NanYangZiZhuYou/NanYangZiZhuYou.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Lamco Sinyo education technology co., LTD (CCQ5LLLX4L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Lamco Sinyo education technology co., LTD (CCQ5LLLX4L)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NanYangZiZhuYou/Library/SMS_SDK",
@@ -931,7 +934,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lumen.NanYang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -943,8 +945,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = NanYangZiZhuYou/NanYangZiZhuYou.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Lamco Sinyo education technology co., LTD (CCQ5LLLX4L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Beijing Lamco Sinyo education technology co., LTD (CCQ5LLLX4L)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/NanYangZiZhuYou/Library/SMS_SDK",
@@ -961,7 +964,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Lumen.NanYang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

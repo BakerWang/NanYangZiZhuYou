@@ -50,7 +50,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84a-Pe-dv9">
                     <rect key="frame" x="77" y="231" width="243" height="35"/>
                     <attributedString key="attributedText">
-                        <fragment content="编辑个性签名，布置你的蚂蜂窝">
+                        <fragment content="编辑个性签名，展现你的个性窝">
                             <attributes>
                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <font key="NSFont" size="17" name="PingFangSC-Regular"/>

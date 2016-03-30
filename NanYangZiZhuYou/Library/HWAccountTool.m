@@ -36,11 +36,11 @@
     HWAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:HWAccountPath];
     /* 验证账号是否过期 */
     // 过期的秒数
-    long long expires_in = [account.expires_in longLongValue];
-    // 获得过期时间
-    NSDate *expiresTime = [account.created_time dateByAddingTimeInterval:expires_in];
-    // 获得当前时间
-    NSDate *now = [NSDate date];
+//    long long expires_in = [account.expires_in longLongValue];
+//    // 获得过期时间
+//    NSDate *expiresTime = [account.created_time dateByAddingTimeInterval:expires_in];
+//    // 获得当前时间
+//    NSDate *now = [NSDate date];
     
     // 如果expiresTime <= now，过期
     /**

@@ -53,14 +53,14 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    HWAccount *account = [HWAccountTool account];
-    if (account) {
-        
-        fSLog(@"%@",account.name);
+//    HWAccount *account = [HWAccountTool account];
+    NSString *name = [[NSUserDefaults standardUserDefaults] valueForKey:@"name"];
+    if (name) {
+//        fSLog(@"%@",account.name);
         //loginVC viewwillapper从HWACCount取出用户名，头像，
         //用用户名+ 密码123 ，头像去bmob注册
         BmobUser *bUser = [[BmobUser alloc] init];
-        bUser.username = account.name;
+        bUser.username = name;
         bUser.password = @"nyzzy123";
         [bUser signUpInBackgroundWithBlock:^ (BOOL isSuccessful, NSError *error){
             if (isSuccessful){

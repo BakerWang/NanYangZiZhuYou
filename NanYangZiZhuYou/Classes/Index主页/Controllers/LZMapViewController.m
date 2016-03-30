@@ -12,7 +12,6 @@
 @interface LZMapViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *customMapView;
 @property (nonatomic, strong) CLLocationManager *mgr;
-/**  地理编码对象 */
 @property (nonatomic ,strong) CLGeocoder *geocoder;
 
 @end
@@ -44,34 +43,31 @@
     self.customMapView.delegate = self;
     self.customMapView.userTrackingMode =  MKUserTrackingModeFollow;
 }
-/**
-  *  每次更新到用户的位置就会调用(调用不频繁, 只有位置改变才会调用)
-  *
-  *  @param mapView      促发事件的控件
-  *  @param userLocation 大头针模型
-  */
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-    // 利用反地理编码获取位置之后设置标题
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
     [self.geocoder reverseGeocodeLocation:userLocation.location completionHandler:^(NSArray *placemarks, NSError *error) {
         CLPlacemark *placemark = [placemarks firstObject];
-        NSLog(@"获取地理位置成功 name = %@ locality = %@", placemark.name, placemark.locality);
+        fSLog(@"获取地理位置成功 name = %@ locality = %@", placemark.name, placemark.locality);
         userLocation.title = placemark.name;
         userLocation.subtitle = placemark.locality;
     }];
     // 移动地图到当前用户所在位置
     // 获取用户当前所在位置的经纬度, 并且设置为地图的中心点
-    [self.customMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+//    [self.customMapView setCenterCoordinate:userLocation.location.coordinate animated:YES];
+    //112.427748
+    //34.61847
+    //112.428485,34.620074
     // 设置地图显示的区域
     // 获取用户的位置
-//    CLLocationCoordinate2D center = userLocation.location.coordinate;
-//    // 指定经纬度的跨度
-//    MKCoordinateSpan span = MKCoordinateSpanMake(0.009310,0.007812);
-//    // 将用户当前的位置作为显示区域的中心点, 并且指定需要显示的跨度范围
-//    MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
-//    
-//    // 设置显示区域
-//    [self.customMapView setRegion:region animated:YES];
+    CLLocationCoordinate2D center = userLocation.location.coordinate;
+    // 指定经纬度的跨度
+    MKCoordinateSpan span = MKCoordinateSpanMake(6,6);
+    // 将用户当前的位置作为显示区域的中心点, 并且指定需要显示的跨度范围
+    MKCoordinateRegion region = MKCoordinateRegionMake(center, span);
+    
+    // 设置显示区域
+    [self.customMapView setRegion:region animated:YES];
+    
 }
 
 @end
