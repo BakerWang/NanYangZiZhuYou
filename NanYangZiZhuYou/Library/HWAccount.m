@@ -14,8 +14,7 @@
     account.access_token = dict[@"access_token"];
     account.uid = dict[@"uid"];
     account.expires_in = dict[@"expires_in"];
-    account.name = dict[@"name"];
-    account.avatar_hd = dict[@"avatar_hd"];
+    
     return account;
 }
 
@@ -28,8 +27,7 @@
     [encoder encodeObject:self.access_token forKey:@"access_token"];
     [encoder encodeObject:self.expires_in forKey:@"expires_in"];
     [encoder encodeObject:self.uid forKey:@"uid"];
-    [encoder encodeObject:self.name forKey:@"name"];
-    [encoder encodeObject:self.avatar_hd forKey:@"avatar_hd"];
+    
 }
 
 /**
@@ -42,8 +40,7 @@
         self.access_token = [decoder decodeObjectForKey:@"access_token"];
         self.expires_in = [decoder decodeObjectForKey:@"expires_in"];
         self.uid = [decoder decodeObjectForKey:@"uid"];
-        self.name = [decoder decodeObjectForKey:@"name"];
-        self.avatar_hd = [decoder decodeObjectForKey:@"avatar_hd"];
+        
     }
     return self;
 }
