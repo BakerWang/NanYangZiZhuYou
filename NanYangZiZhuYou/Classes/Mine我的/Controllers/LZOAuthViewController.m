@@ -112,7 +112,7 @@
         [userDefault setValue:responseObject[@"avatar_hd"] forKey:@"avatar_hd"];
         [userDefault synchronize];
         
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
         
         fSLog(@"%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

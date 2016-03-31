@@ -87,6 +87,17 @@
 }
 
 //______________________________________________________________________________
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    CGFloat sectionHeaderHeight = 100;
+    if (scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y > 0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    }else
+        if(scrollView.contentOffset.y >= sectionHeaderHeight){
+            
+            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+        }
+}
 #pragma mark    //[业务逻辑]
 - (void)makeImageWithName{
     self.bUser = [BmobUser getCurrentUser];
@@ -99,7 +110,18 @@
         [self.mineHead.userName setTitle:@"欢迎来到南阳自助游" forState:UIControlStateNormal];
         
     } else {
-        self.mineHead.imageView.image = [UIImage imageWithContentsOfFile:kPath];
+        UIImage *image = [UIImage imageWithContentsOfFile:kPath];
+        NSString *avatar_hd = [[NSUserDefaults standardUserDefaults] valueForKey:@"avatar_hd"];
+        if (image) {
+            self.mineHead.imageView.image = image;
+        }else{
+            if (avatar_hd) {
+                [self.mineHead.imageView sd_setImageWithURL:[NSURL URLWithString:avatar_hd] placeholderImage:[UIImage imageNamed:@"phloder"]];
+            }else{
+                self.mineHead.imageView.image = [UIImage imageNamed:@"phloder"];
+                
+            }
+        }
         [self.mineHead.userName setTitle:self.bUser.username forState:UIControlStateNormal];
     }
     

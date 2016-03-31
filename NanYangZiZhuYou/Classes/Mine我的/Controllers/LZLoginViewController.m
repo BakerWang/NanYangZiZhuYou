@@ -51,33 +51,50 @@
 - (void)tapClick:(UITapGestureRecognizer*)tap{
     [_pooCodeView changeCode];
 }
-- (void)viewWillAppear:(BOOL)animated{
+- (void)viewWillAppear:(BOOL)animated{//nyzzy123
     [super viewWillAppear:animated];
-//    HWAccount *account = [HWAccountTool account];
-    NSString *name = [[NSUserDefaults standardUserDefaults] valueForKey:@"name"];
+    
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *name = [userDefault valueForKey:@"name"];
     if (name) {
-//        fSLog(@"%@",account.name);
-        //loginVC viewwillapper从HWACCount取出用户名，头像，
-        //用用户名+ 密码123 ，头像去bmob注册
-        BmobUser *bUser = [[BmobUser alloc] init];
-        bUser.username = name;
-        bUser.password = @"nyzzy123";
-        [bUser signUpInBackgroundWithBlock:^ (BOOL isSuccessful, NSError *error){
-            if (isSuccessful){
+        BOOL isFirst =  [[userDefault objectForKey:@"isfirstlzc"] boolValue];
+        if(!isFirst) {
+            BmobUser *bUser = [[BmobUser alloc] init];
+            bUser.username = name;
+            bUser.password = @"nyzzy123";
+            [bUser signUpInBackgroundWithBlock:^ (BOOL isSuccessful, NSError *error){
                 //注册成功返回mineVC
-                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                [ProgressHUD showSuccess:@"注册成功"];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [ProgressHUD dismiss];
-                });
-            } else {
-                [ProgressHUD showError:@"授权失败，请重新授权"];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [ProgressHUD dismiss];
-                });
-            }
-        }];
-        
+                [self.navigationController popViewControllerAnimated:YES];
+                if (isSuccessful){
+                    [ProgressHUD showSuccess:@"注册成功"];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [ProgressHUD dismiss];
+                    });
+                } else {
+                    [ProgressHUD showError:@"授权失败，请重新授权"];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [ProgressHUD dismiss];
+                    });
+                }
+            }];
+            [userDefault setObject:@"YES"forKey:@"isfirstlzc"];
+            [userDefault synchronize];
+            
+        }else{
+            [BmobUser loginInbackgroundWithAccount:name andPassword:@"nyzzy123" block:^(BmobUser *user, NSError *error) {
+                if (user) {
+                    [self.navigationController popViewControllerAnimated:YES];
+                    
+                } else {
+                    [ProgressHUD show:@"授权失败，请重新授权"];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [ProgressHUD dismiss];
+                    });
+                    
+                }
+            }];
+            
+        }
     }else{
         
         [self.userName becomeFirstResponder];
