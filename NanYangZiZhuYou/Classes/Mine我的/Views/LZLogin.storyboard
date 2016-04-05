@@ -79,6 +79,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mm6-HJ-v0r">
                                 <rect key="frame" x="145" y="253" width="124" height="30"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gwX-PZ-bdY"/>
                                     <constraint firstAttribute="width" constant="124" id="ieU-j2-cWS"/>
@@ -93,9 +96,6 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
-                                <connections>
-                                    <action selector="otherLogin:" destination="Pd6-u5-Sa1" eventType="touchUpInside" id="t2B-KK-GtJ"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="请输入图形验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0s5-xn-Ols">
                                 <rect key="frame" x="0.0" y="148" width="207" height="30"/>
@@ -129,6 +129,13 @@
                                     <constraint firstAttribute="width" constant="82" id="cTt-za-iDT"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconfont-weibo" highlightedImage="iconfont_weibo_selet" translatesAutoresizingMaskIntoConstraints="NO" id="QFb-Li-OVz">
+                                <rect key="frame" x="167" y="291" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="M3k-2H-J7u"/>
+                                    <constraint firstAttribute="width" constant="80" id="fGK-0q-DP4"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -150,8 +157,10 @@
                             <constraint firstItem="JAA-o2-AR5" firstAttribute="leading" secondItem="hbJ-dK-iGr" secondAttribute="leading" constant="59" id="ePl-Wa-Ihc"/>
                             <constraint firstItem="JAA-o2-AR5" firstAttribute="top" secondItem="EYo-pR-Qgh" secondAttribute="bottom" constant="58" id="lcj-PI-TlT"/>
                             <constraint firstItem="2j8-Km-oFg" firstAttribute="leading" secondItem="hbJ-dK-iGr" secondAttribute="leading" id="mT0-eA-okx"/>
+                            <constraint firstItem="QFb-Li-OVz" firstAttribute="top" secondItem="Mm6-HJ-v0r" secondAttribute="bottom" constant="8" id="prq-4A-tbo"/>
                             <constraint firstItem="JPD-EO-7za" firstAttribute="top" secondItem="EYo-pR-Qgh" secondAttribute="bottom" constant="8" id="qRa-7n-Uxt"/>
                             <constraint firstItem="Mm6-HJ-v0r" firstAttribute="top" secondItem="JAA-o2-AR5" secondAttribute="bottom" constant="10" id="uK9-4u-7IT"/>
+                            <constraint firstItem="QFb-Li-OVz" firstAttribute="centerX" secondItem="hbJ-dK-iGr" secondAttribute="centerX" id="zbu-s2-myI"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -166,6 +175,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="passWord" destination="EYo-pR-Qgh" id="QCK-BK-nhS"/>
+                        <outlet property="shareButton" destination="QFb-Li-OVz" id="nJV-jV-bw1"/>
                         <outlet property="userName" destination="2j8-Km-oFg" id="z7M-ue-xOF"/>
                         <outlet property="vailDateView" destination="JPD-EO-7za" id="k5M-7B-IUl"/>
                         <outlet property="validate" destination="0s5-xn-Ols" id="VW6-0D-UIw"/>
@@ -420,4 +430,8 @@
             <point key="canvasLocation" x="552" y="1198"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconfont-weibo" width="80" height="80"/>
+        <image name="iconfont_weibo_selet" width="80" height="80"/>
+    </resources>
 </document>

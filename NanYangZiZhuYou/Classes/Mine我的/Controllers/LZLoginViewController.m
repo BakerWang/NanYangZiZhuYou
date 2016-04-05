@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
 @property (weak, nonatomic) IBOutlet UITextField *validate;
 @property (weak, nonatomic) IBOutlet UIView *vailDateView;
+@property (weak, nonatomic) IBOutlet UIImageView *shareButton;
 
 /** 用户 */
 @property (nonatomic, strong) BmobObject *userId;
@@ -45,13 +46,21 @@
 //    self.vailDateView = _pooCodeView;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
     [_pooCodeView addGestureRecognizer:tap];
-
+    
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareButton.frame = self.shareButton.frame;
+    [shareButton addTarget:self action:@selector(sharelogin) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:shareButton];
 }
-
+- (void)sharelogin{
+    LZOAuthViewController *lz = [LZOAuthViewController new];
+    [self.navigationController pushViewController:lz animated:YES];
+    
+}
 - (void)tapClick:(UITapGestureRecognizer*)tap{
     [_pooCodeView changeCode];
 }
-- (void)viewWillAppear:(BOOL)animated{//nyzzy123
+- (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
@@ -63,9 +72,10 @@
             bUser.username = name;
             bUser.password = @"nyzzy123";
             [bUser signUpInBackgroundWithBlock:^ (BOOL isSuccessful, NSError *error){
-                //注册成功返回mineVC
-                [self.navigationController popViewControllerAnimated:YES];
                 if (isSuccessful){
+                    //注册成功返回mineVC
+                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                    
                     [ProgressHUD showSuccess:@"注册成功"];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [ProgressHUD dismiss];
@@ -83,10 +93,11 @@
         }else{
             [BmobUser loginInbackgroundWithAccount:name andPassword:@"nyzzy123" block:^(BmobUser *user, NSError *error) {
                 if (user) {
-                    [self.navigationController popViewControllerAnimated:YES];
+                    //注册成功返回mineVC
+                    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
                     
                 } else {
-                    [ProgressHUD show:@"授权失败，请重新授权"];
+                    [ProgressHUD show:@"授权登录失败，请重新授权登录"];
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         [ProgressHUD dismiss];
                     });
@@ -161,10 +172,7 @@
     
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)otherLogin:(id)sender {
-    LZOAuthViewController *lz = [LZOAuthViewController new];
-    [self.navigationController pushViewController:lz animated:YES];
-}
+
 
 
 

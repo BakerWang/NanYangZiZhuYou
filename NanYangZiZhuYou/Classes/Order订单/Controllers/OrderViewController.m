@@ -64,6 +64,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
     [ProgressHUD dismiss];
     
     

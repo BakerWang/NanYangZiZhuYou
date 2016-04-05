@@ -84,6 +84,7 @@
         // 存储账号信息
         [HWAccountTool saveAccount:account];
         
+        
         //在发一个请求，请求微博用户信息，头像，用户名
         [self setupUserInfo:account];
        

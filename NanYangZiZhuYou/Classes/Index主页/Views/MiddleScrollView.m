@@ -13,7 +13,8 @@
 @end
 @implementation MiddleScrollView
 - (instancetype)initWithFrame:(CGRect)frame andcategroyList:(NSMutableArray *)categroyList{
-    if ([super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
         self.categroyList = categroyList;
         [self loadingCustomView];
     }

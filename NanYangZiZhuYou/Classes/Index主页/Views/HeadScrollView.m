@@ -12,7 +12,8 @@
 @implementation HeadScrollView
 
 - (instancetype)initWithFrame:(CGRect)frame andbannerList:(NSMutableArray *)bannerList{
-    if ([super initWithFrame:frame]) {
+    self = [super initWithFrame:frame];
+    if (self) {
         self.bannerList = bannerList;
         [self loadingCustomView];
     }
@@ -45,14 +46,14 @@
         self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.2 - 30, SCREEN_WIDTH, 30)];
         self.pageControl.pageIndicatorTintColor = [UIColor blueColor];
         self.pageControl.currentPageIndicatorTintColor = [UIColor redColor];
-        
+
     }
     return _pageControl;
 }
 - (void)loadingCustomView{
     for (int i = 0; i < self.bannerList.count; i++) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.2 - 2)];
-//        imageView.userInteractionEnabled = YES;
+        imageView.userInteractionEnabled = YES;
         Index *index = self.bannerList[i];
         [imageView sd_setImageWithURL:[NSURL URLWithString:index.showpic] placeholderImage:nil];
         [self.scrollView addSubview:imageView];
@@ -64,6 +65,7 @@
     //定时器
     self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(scrollViewAction) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    
     [_pageControl addTarget:self action:@selector(pateSelectAction:) forControlEvents:UIControlEventValueChanged];
     
 }

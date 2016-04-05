@@ -31,9 +31,9 @@
     
     // 调整图片
     self.imageView.x = self.width / 4;
-    self.imageView.y = 5;
+    self.imageView.y = 0;
     self.imageView.width = self.width / 2;
-    self.imageView.height = self.imageView.width / 2;
+    self.imageView.height = self.width / 2;
     
     // 调整文字
     self.titleLabel.x = 0;

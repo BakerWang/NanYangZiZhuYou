@@ -19,6 +19,8 @@
 #import "HWAccountTool.h"
 #import "LZ_HeadView.h"
 #import "LZ_Mine_Head_DetailViewController.h"
+#import "LZ_DetailTableViewController.h"
+
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -135,7 +137,10 @@
         UINavigationController *nav = sb.instantiateInitialViewController;
         [self.navigationController presentViewController:nav animated:YES completion:nil];
     }else{
-        LZ_Mine_Head_DetailViewController *lz = [LZ_Mine_Head_DetailViewController new];
+//        LZ_Mine_Head_DetailViewController *lz = [LZ_Mine_Head_DetailViewController new];
+//        [self.navigationController pushViewController:lz animated:YES];
+        
+        LZ_DetailTableViewController *lz = [LZ_DetailTableViewController new];
         [self.navigationController pushViewController:lz animated:YES];
     }
     
